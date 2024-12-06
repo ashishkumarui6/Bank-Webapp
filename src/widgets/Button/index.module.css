@@ -1,0 +1,14 @@
+.button{
+    background-color: #d70026;
+    border: 1px solid #d70026;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .35);
+    color: #fbfcfd;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+    height: 50px;
+    text-transform: capitalize;
+    transition: all .2s ease;
+    width: 100%;
+}
