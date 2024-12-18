@@ -27,7 +27,7 @@ const Login = () => {
           <div className={styles.signin_para}>
             <p>Don't Have An Account?</p>
             <span>
-              <Link>Sign up</Link>
+              <Link to="/signup">Sign up</Link>
             </span>
           </div>
         </div>

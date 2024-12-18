@@ -1,0 +1,38 @@
+.footer{
+    width: 100%;
+}
+
+
+.footer .foots{
+    background: #fff;
+    border-radius: 15px 15px 0 0;
+    border-top: 2px solid #d70026;
+    bottom: 0;
+    left: 0;
+    padding: 20px 0;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.foots .foot{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+}
+
+
+.foot span{
+    color: #d70026;
+    cursor: pointer;
+    margin-left: 5px;
+    transition: all .3s ease-out;
+}
+
+
+.foot span img{
+    height: 15px;
+    width: 15px;
+}

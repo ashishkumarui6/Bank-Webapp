@@ -44,17 +44,4 @@
 }
 
 
-.login_para{
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-    text-align: center;
-    font-weight: 600;
-    font-size: 22px;
-}
-
-.login_para span a{
-    margin-left: 8px;
-    color: var(--primary-color);
-}
 

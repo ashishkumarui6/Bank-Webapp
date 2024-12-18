@@ -2,7 +2,14 @@ import React from "react";
 import styles from "./index.module.css";
 import { FaUser } from "react-icons/fa";
 
-const InputField = ({ type, placeholder, required, disabled }) => {
+const InputField = ({
+  id,
+  type,
+  placeholder,
+  required,
+  disabled,
+  onChange,
+}) => {
   return (
     <div className={styles.InputField}>
       <input
@@ -11,6 +18,8 @@ const InputField = ({ type, placeholder, required, disabled }) => {
         placeholder={placeholder}
         required={required}
         disabled={disabled}
+        onChange={onChange}
+        id={id}
       />
       <FaUser />
     </div>
