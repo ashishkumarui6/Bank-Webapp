@@ -1,20 +1,52 @@
-import React from "react";
-import { Navigate, Route, Routes } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import NoPage from "./pages/NoPage";
 import SignUp from "./pages/registration/SignUp";
 import Login from "./pages/registration/Login";
-import Home from "./pages/Home";
-
+import Main from "./pages/Main";
+import SavingAC from "./pages/SavingAC";
+import QrCode from "./pages/QrCode";
+import Pay from "./pages/Pay";
+import AddMoney from "./pages/AddMoney";
+import ACdetails from "./pages/ACdetails";
+import CardSetting from "./pages/CardSetting";
+import CurrencyConverter from "./pages/CurrencyConverter";
+import History from "./pages/History";
+import MyState from "./context/contextStore/myState";
+import AllModal from "./AllModal";
+import QrModal from "./components/QrModal";
 const App = () => {
+  // const [show, setShow] = useState(true);
+  // const [pathname] = useLocation();
+
+  // useEffect(() => {
+  //   setShow(false);
+  // }, [pathname]);
   return (
     <>
-      <Routes>
-        <Route path="/" element={<Navigate to="/login" />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/*" element={<NoPage />} />
-      </Routes>
+      <MyState>
+        <Routes>
+          {/* <Route path="/" element={<Navigate to="/login" />} /> */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/" element={<Main element={<SavingAC />} />} />
+          <Route path="/qr" element={<Main element={<QrCode />} />} />
+          <Route path="/pay" element={<Main element={<Pay />} />} />
+          <Route path="/addmoney" element={<Main element={<AddMoney />} />} />
+          <Route path="/acdetails" element={<Main element={<ACdetails />} />} />
+
+          <Route
+            path="/cardsetting"
+            element={<Main element={<CardSetting />} />}
+          />
+          <Route
+            path="/currencyconvertor"
+            element={<Main element={<CurrencyConverter />} />}
+          />
+          <Route path="/history" element={<Main element={<History />} />} />
+          <Route path="/*" element={<NoPage />} />
+        </Routes>
+      </MyState>
     </>
   );
 };

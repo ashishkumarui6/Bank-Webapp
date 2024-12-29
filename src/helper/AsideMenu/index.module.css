@@ -8,7 +8,9 @@
     top: 0;
     width: 100%;
     z-index: 10000000000000000;
+    transition: 0.5s ease-in;
     /* display: none; */
+    animation: 0.5s ease forwards;
 }
 
 .AsideMenu .AsideMenu_aside{
@@ -18,13 +20,14 @@
     box-shadow: 0 54px 55px rgba(0, 0, 0, .25), 0 -12px 30px rgba(0, 0, 0, .12), 0 4px 6px rgba(0, 0, 0, .12), 0 12px 13px rgba(0, 0, 0, .17), 0 -3px 5px rgba(0, 0, 0, .09);
     height: 97vh;
     left: 10px;
+    transition: 0.5s ease-in;
     overflow-y: auto;
     overflow: hidden;
     position: fixed;
     top: 10px;
     transition: .3s;
     width: 290px;
-    animation: 0.5s ease forwards;
+    animation:leftRight 0.5s ease forwards;
     z-index: 999999999999;
 
 }
@@ -112,3 +115,23 @@
     transition: all .3s ease-out;
     color: #d70026;
 }
+
+
+@keyframes leftRight {
+    
+    0%{
+        transform: translateX(-200px);
+    }
+    100%{
+        transform: translateX(0); 
+    }
+}
+/* @keyframes leftRight2 {
+    
+    100%{
+        transform: translateX(0);
+    }
+    0%{
+        transform: translateX(200px); 
+    }
+} */

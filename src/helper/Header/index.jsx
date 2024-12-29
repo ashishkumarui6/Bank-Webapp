@@ -30,7 +30,7 @@ const Header = ({ toggle }) => {
           <div className={styles.profile}>
             <div className={styles.profile_img}>
               <div className={styles.imageUrl}>
-                <img src={profile} alt="" />
+                <img src={profile} alt="profile" />
               </div>
             </div>
           </div>

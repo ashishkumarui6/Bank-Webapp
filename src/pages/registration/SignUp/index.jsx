@@ -6,8 +6,9 @@ import Page_4 from "../../../components/SignUpCards/Page_4";
 import Page_5 from "../../../components/SignUpCards/Page_5";
 import styles from "./index.module.css";
 import Button from "../../../widgets/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Page_6 from "../../../components/SignUpCards/Page_6";
+import axios from "axios";
 
 const reducerFunc = (state, action) => {
   switch (action.type) {
@@ -21,6 +22,7 @@ const reducerFunc = (state, action) => {
 };
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const [step1, setStep1] = useState(true);
   const [step2, setStep2] = useState(false);
   const [step3, setStep3] = useState(false);
@@ -59,6 +61,19 @@ const SignUp = () => {
       setStep5(false);
       setStep6(true);
     } else {
+      const config = {
+        url: "https://bank-app-652c0-default-rtdb.firebaseio.com/users.json",
+        method: "POST",
+        data: state,
+      };
+
+      axios(config)
+        .then((res) => {
+          localStorage.setItem("token", "login");
+          navigate("/login");
+          console.log(res);
+        })
+        .catch((err) => console.log(err));
     }
   };
 
@@ -88,6 +103,7 @@ const SignUp = () => {
     (step4 && "4") ||
     (step5 && "5") ||
     (step6 && "6");
+
   return (
     <>
       <div className={styles.form}>

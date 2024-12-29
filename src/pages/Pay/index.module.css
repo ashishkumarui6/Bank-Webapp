@@ -1,0 +1,137 @@
+.knowInfo{
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #f3e8ea;
+    border-radius: 10px;
+    -webkit-column-gap: 20px;
+    column-gap: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding: 5px 10px;
+}
+
+.knowInfo .infoIcon{
+    height: 30px;
+    width: 30px;
+}
+
+
+.infoIcon img{
+    height: 100%;
+    width: 100%;
+}
+
+.knowInfo p{
+    font-size: 18px;
+    color: #000;
+}
+
+
+.pay_pay{
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.pay_pay .pay_pay_item{
+    text-align: right;
+    width: 239.75px;
+}
+
+
+.Items_items{
+    align-items: center;
+    background: #fff;
+    border: 1px solid #9e9e9e;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .16);
+    color: #fff;
+    -webkit-column-gap: 20px;
+    column-gap: 20px;
+    cursor: pointer;
+    display: flex;
+    font-size: 14px;
+    height: 50px;
+    padding: 10px;
+    width: 100%;
+}
+
+.Items_items .Item_items_img{
+    height: 30px;
+    width: 30px;
+}
+
+.Item_items_img img{
+    width: 100%;
+    height: 100%;
+}
+
+.Items_items h1{
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all .3s ease-out;
+    color: #000;
+}
+
+.recent_recents{
+    margin-bottom: 30px;
+}
+
+.recent_recents .Title_title{
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #000;
+}
+
+.recent_recents .Recents_add{
+    align-items: center;
+    column-gap: 5px;
+    display: flex;
+}
+
+.Recents_add .Recents_add_btn{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.Recents_add_btn .Recents_add_img{
+    cursor: pointer;
+    height: 60px;
+    width: 60px;
+}
+
+
+.Recents_add_img img{
+    height: 100%;
+    width: 100%;
+}
+
+
+.Recents_add_p{
+    color: #161616;
+    font-size: 14px;
+    text-transform: capitalize;
+}
+
+
+.title_titles{
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #000;
+}
+
+.transferMoney{
+    grid-column-gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-bottom: 10px;
+}
+

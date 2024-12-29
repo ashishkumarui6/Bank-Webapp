@@ -1,0 +1,15 @@
+.question{
+    animation: UserDashboard_to-left__aBopM .8s forwards;
+    background-color: #fff;
+    border: 1px solid #9e9e9e;
+    border-radius: 10px;
+    box-shadow: 0 54px 55px rgba(0, 0, 0, .25), 0 -12px 30px rgba(0, 0, 0, .12), 0 4px 6px rgba(0, 0, 0, .12), 0 12px 13px rgba(0, 0, 0, .17), 0 -3px 5px rgba(0, 0, 0, .09);
+    height: 300px;
+    padding: 10px;
+    position: fixed;
+    right: 10px;
+    top: 70px;
+    width: 300px;
+    z-index: 100000000000000000;
+    display: none;
+}

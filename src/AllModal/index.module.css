@@ -1,0 +1,23 @@
+.AllModal .AllModal_dropback{
+    background-color: rgba(0, 0, 0, .75);
+    bottom: 0;
+    cursor: pointer;
+    height: 100vh;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 99999999;
+}
+
+.AllModal_dropback .AllModal_dropback_right_box{
+    animation: Modal_fadeInRight__W1x2L .3s ease-out forwards;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 50%;
+    z-index: 9999999999;
+    height: auto;
+    background: red;
+}
