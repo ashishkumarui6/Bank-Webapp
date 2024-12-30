@@ -1,0 +1,26 @@
+.CurrencyConverter_h1{
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: #000;
+}
+
+.CurrencyConverter_select{
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+
+label{
+    color: #000 !important;
+}
+
+select{
+    font-size: 15px;
+}
+
+option{
+    font-size: 14px;
+}
+

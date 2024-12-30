@@ -2,9 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const uiSlice = createSlice({
     name: "ui",
-    initialState: {},
+    initialState: { modalOpen: true },
     reducers: {
-
+        onModalOpen: (state, action) => {
+            state.modalOpen = !state.modalOpen;
+        },
     }
 });
 

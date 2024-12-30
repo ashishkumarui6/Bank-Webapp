@@ -3,8 +3,6 @@ import styles from "./index.module.css";
 import Layout from "../../ui/layout";
 import AsideMenu from "../../helper/AsideMenu";
 import { Navigate, useLocation } from "react-router-dom";
-import AllModal from "../../AllModal";
-import QrModal from "../../components/QrModal";
 
 const Main = ({ element }) => {
   const [show, setShow] = useState(false);

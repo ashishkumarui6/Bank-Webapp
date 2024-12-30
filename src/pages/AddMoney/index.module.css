@@ -1,0 +1,128 @@
+.AddMoney_logo{
+    height: 70px;
+    margin: auto;
+    text-align: center;
+    width: 200px;
+}
+
+.AddMoney_logo img{
+    height: 100%;
+    width: 100%;
+}
+.Title_title{
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.Title_title h2{
+    font-size: 24px;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: #000;
+}
+
+.Title_title p{
+    color: #9e9e9e;
+    text-transform: capitalize;
+}
+
+
+.Fund_fund{
+    margin-bottom: 30px;
+}
+
+.Fund_fund h4{
+    color: #9e9e9e;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+
+
+.Fund_fund .Fund_fund_amount{
+    align-items: center;
+    border-bottom: 1px solid #9e9e9e;
+    display: flex;
+    height: 45px;
+    padding: 0 5px;
+}
+
+.Fund_fund_amount p{
+    color: #9e9e9e;
+}
+
+.Fund_fund_amount input{
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    height: 45px;
+    padding: 0 5px;
+    width: 100%;
+}
+
+.selectUpi{
+    margin-bottom: 30px;
+}
+
+.selectUpi_title{
+    font-size: 24px;
+    font-weight: 450;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+.selectUpi_wrapper{
+    align-items: center;
+    column-gap: 30px;
+    display: flex;
+}
+
+.AddMoney_line{
+    background-color: #9e9e9e;
+    height: 1px;
+    margin-bottom: 20px;
+}
+
+.AddMoney_neft{
+    margin-bottom: 50px;
+    text-align: right;
+}
+
+.AddMoney_neft p{
+    color: #2a2a2a;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.AddMoney_powerby_bank{
+    align-items: center;
+    -webkit-column-gap: 5px;
+    column-gap: 5px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.AddMoney_powerby_bank p:first-child{
+    color: #9e9e9e;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+
+.AddMoney_powerby_bank p:last-child{
+    background-color: #161616;
+    border: 1px solid #161616;
+    border-radius: 7px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 1px 5px;
+}
+
+.AddMoney_powerby_bank p:last-child span{
+    color: #d70026;
+    font-weight: 700;
+    font-size: 14px;
+}

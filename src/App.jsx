@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Navigate, Route, Routes, useLocation } from "react-router-dom";
+import React from "react";
+import { Route, Routes } from "react-router-dom";
 import NoPage from "./pages/NoPage";
 import SignUp from "./pages/registration/SignUp";
 import Login from "./pages/registration/Login";
@@ -13,20 +13,11 @@ import CardSetting from "./pages/CardSetting";
 import CurrencyConverter from "./pages/CurrencyConverter";
 import History from "./pages/History";
 import MyState from "./context/contextStore/myState";
-import AllModal from "./AllModal";
-import QrModal from "./components/QrModal";
 const App = () => {
-  // const [show, setShow] = useState(true);
-  // const [pathname] = useLocation();
-
-  // useEffect(() => {
-  //   setShow(false);
-  // }, [pathname]);
   return (
     <>
       <MyState>
         <Routes>
-          {/* <Route path="/" element={<Navigate to="/login" />} /> */}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/" element={<Main element={<SavingAC />} />} />
@@ -34,7 +25,6 @@ const App = () => {
           <Route path="/pay" element={<Main element={<Pay />} />} />
           <Route path="/addmoney" element={<Main element={<AddMoney />} />} />
           <Route path="/acdetails" element={<Main element={<ACdetails />} />} />
-
           <Route
             path="/cardsetting"
             element={<Main element={<CardSetting />} />}
