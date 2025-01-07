@@ -5,8 +5,11 @@ import { IoIosMenu } from "react-icons/io";
 import { AiFillQuestionCircle } from "react-icons/ai";
 import { BsFillBellFill } from "react-icons/bs";
 import profile from "../../assets/ashish-me.jpg";
+import { useDispatch } from "react-redux";
+import { uiActions } from "../../store/ui";
 
 const Header = ({ toggle }) => {
+  const dispatch = useDispatch();
   return (
     <header>
       <div className={styles.header}>
@@ -20,14 +23,25 @@ const Header = ({ toggle }) => {
         </div>
         <div className={styles.right}>
           <div className={styles.icon}>
-            <div className={styles.icon_left}>
+            <div
+              onClick={() => dispatch(uiActions.onModalOpen({ name: "faq" }))}
+              className={styles.icon_left}
+            >
               <AiFillQuestionCircle color="#000" size={26} />
             </div>
-            <div className={styles.icon_right}>
+            <div
+              onClick={() =>
+                dispatch(uiActions.onModalOpen({ name: "notification" }))
+              }
+              className={styles.icon_right}
+            >
               <BsFillBellFill color="#000" size={26} />
             </div>
           </div>
-          <div className={styles.profile}>
+          <div
+            onClick={() => dispatch(uiActions.onModalOpen({ name: "profile" }))}
+            className={styles.profile}
+          >
             <div className={styles.profile_img}>
               <div className={styles.imageUrl}>
                 <img src={profile} alt="profile" />

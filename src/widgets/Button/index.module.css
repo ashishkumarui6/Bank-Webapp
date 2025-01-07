@@ -12,3 +12,8 @@
     transition: all .2s ease;
     width: 100%;
 }
+
+.button:active{
+    background: #fbfcfd;
+    color: #d70026;
+}

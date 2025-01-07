@@ -5,6 +5,8 @@ import InputField from "../../../widgets/InputField";
 import Button from "../../../widgets/Button";
 import styles from "./index.module.css";
 import { Link } from "react-router-dom";
+import { MdEmail } from "react-icons/md";
+import { BsBriefcaseFill } from "react-icons/bs";
 
 const Page_2 = ({ onChange }) => {
   return (
@@ -20,12 +22,14 @@ const Page_2 = ({ onChange }) => {
             type="email"
             id="email"
             placeholder="Email Address"
+            icon={<MdEmail color="#d70026" size={20} />}
           />
           <InputField
             onChange={onChange}
             type="text"
             id="work"
             placeholder="Work Status"
+            icon={<BsBriefcaseFill color="#d70026" size={20} />}
           />
         </div>
         <ul className={styles.circulTab}>

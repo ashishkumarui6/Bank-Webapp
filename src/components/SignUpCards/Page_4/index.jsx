@@ -5,6 +5,7 @@ import InputField from "../../../widgets/InputField";
 import Button from "../../../widgets/Button";
 import styles from "./index.module.css";
 import { Link } from "react-router-dom";
+import { FaLock } from "react-icons/fa";
 
 const Page_4 = ({ onChange }) => {
   return (
@@ -20,12 +21,14 @@ const Page_4 = ({ onChange }) => {
             id="pass"
             type="password"
             placeholder="Password ( > = 6 Digits)"
+            icon={<FaLock color="#d70026" size={18} />}
           />
           <InputField
             onChange={onChange}
             id="cpass"
             type="password"
             placeholder="Confirm Password"
+            icon={<FaLock color="#d70026" size={18} />}
           />
         </div>
         <ul className={styles.circulTab}>

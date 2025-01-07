@@ -9,23 +9,27 @@ export const transferIcons = [
     icon: qr,
     title: "icons",
     name: "Scan QR",
+    togggle: "qr",
   },
   {
     id: 1,
     icon: home,
     title: "icons",
     name: "Bank Transfer",
+    togggle: "banktransfer",
   },
   {
     id: 1,
     icon: phone,
     title: "icons",
     name: "Phone Number",
+    togggle: "phonenumber",
   },
   {
     id: 1,
     icon: upi,
     title: "icons",
     name: "UPI ID",
+    togggle: "upi",
   },
 ];

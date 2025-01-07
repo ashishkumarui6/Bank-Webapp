@@ -3,6 +3,8 @@ import Title from "../../../shared/Title/intex";
 import Desciptions from "../../../shared/Descriptins";
 import InputField from "../../../widgets/InputField";
 import styles from "./index.module.css";
+import { FaUser } from "react-icons/fa";
+import { FaPhone } from "react-icons/fa";
 
 const Page_1 = ({ onChange }) => {
   return (
@@ -18,12 +20,14 @@ const Page_1 = ({ onChange }) => {
             onChange={onChange}
             type="text"
             placeholder="Full Name"
+            icon={<FaUser color="#d70026" size={18} />}
           />
           <InputField
             onChange={onChange}
             type="text"
             id="phone"
             placeholder="Phone Number"
+            icon={<FaPhone color="#d70026" size={18} />}
           />
         </div>
         <ul className={styles.circulTab}>

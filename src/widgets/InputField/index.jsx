@@ -9,6 +9,7 @@ const InputField = ({
   required,
   disabled,
   onChange,
+  icon,
 }) => {
   return (
     <div className={styles.InputField}>
@@ -21,7 +22,7 @@ const InputField = ({
         onChange={onChange}
         id={id}
       />
-      <FaUser />
+      {icon}
     </div>
   );
 };

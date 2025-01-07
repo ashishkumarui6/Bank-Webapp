@@ -12,7 +12,7 @@ import ACdetails from "./pages/ACdetails";
 import CardSetting from "./pages/CardSetting";
 import CurrencyConverter from "./pages/CurrencyConverter";
 import History from "./pages/History";
-import MyState from "./context/contextStore/myState";
+import MyState from "./context/myState";
 const App = () => {
   return (
     <>

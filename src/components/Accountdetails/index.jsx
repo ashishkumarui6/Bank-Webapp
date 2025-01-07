@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import AcTitle from "../../shared/AcTitile";
 import styles from "./index.module.css";
+import MyContext from "../../context/MyContext";
 
 const Accountdetails = () => {
+  const ctx = useContext(MyContext);
+
+  const { copydata } = ctx;
+
+  console.log(copydata, "11");
   return (
     <>
       <div className={styles.Account_details_top}>
@@ -10,11 +16,11 @@ const Accountdetails = () => {
         <div className={styles.content_details}>
           <div className={styles.details}>
             <p className={styles.details_p}>Full Legal Name</p>
-            <h1 className={styles.details_h1}>ashish</h1>
+            <h1 className={styles.details_h1}>{copydata[0]?.name}</h1>
           </div>
           <div className={styles.details}>
             <p className={styles.details_p}>Name On Card</p>
-            <h1 className={styles.details_h1}>ashish</h1>
+            <h1 className={styles.details_h1}>{copydata[0]?.name}</h1>
           </div>
         </div>
       </div>
@@ -57,11 +63,11 @@ const Accountdetails = () => {
         <div className={styles.content_details}>
           <div className={styles.details}>
             <p className={styles.details_p}>Phone number</p>
-            <h1 className={styles.details_h1}>9005040791</h1>
+            <h1 className={styles.details_h1}>{copydata[0]?.phone}</h1>
           </div>
           <div className={styles.details}>
             <p className={styles.details_p}>email id</p>
-            <h1 className={styles.details_h1}>ashish@gmail.com</h1>
+            <h1 className={styles.details_h1}>{copydata[0]?.email}</h1>
           </div>
         </div>
       </div>
@@ -70,7 +76,7 @@ const Accountdetails = () => {
         <div className={styles.content_details}>
           <div className={styles.details}>
             <p className={styles.details_p}>employment type</p>
-            <h1 className={styles.details_h1}>saving</h1>
+            <h1 className={styles.details_h1}>{copydata[0]?.work}</h1>
           </div>
         </div>
       </div>

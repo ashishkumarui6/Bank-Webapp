@@ -4,6 +4,7 @@ import profile from "../../assets/men.jpg";
 import myProfile from "../../assets/user-dass/userdass.svg";
 import setting from "../../assets/user-dass/setting.svg";
 import logout from "../../assets/user-dass/logout.svg";
+import { useNavigate } from "react-router-dom";
 
 const userDass = [
   {
@@ -26,6 +27,11 @@ const userDass = [
   },
 ];
 const UserDass = () => {
+  const navigate = useNavigate();
+
+  const onGetLogout = () => {
+    navigate("/login");
+  };
   return (
     <div className={styles.userDass}>
       <div className={styles.userDass_top}>
@@ -44,7 +50,7 @@ const UserDass = () => {
           return (
             <div key={it.id} className={styles.botItems}>
               <img src={it.icon} alt={it.title} />
-              <p>{it.name}</p>
+              <p onClick={onGetLogout}>{it.name}</p>
             </div>
           );
         })}

@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const AsideMenu = ({ toggle }) => {
   return (
     <>
-      <div className={styles.AsideMenu}>
+      <div onClick={toggle} className={styles.AsideMenu}>
         <div className={styles.AsideMenu_aside}>
           <div className={styles.AsideMenu_top}>
             <div className={styles.container}>

@@ -16,6 +16,8 @@ const reducerFunc = (state, action) => {
       return { ...state, ...action.payload };
     case "GENDER":
       return { ...state, ...action.payload };
+    case "PAYMETHOD":
+      return { ...state, ...action.payload };
     default:
       return state;
   }
@@ -33,6 +35,12 @@ const SignUp = () => {
   const [page, setPage] = useState(false);
   const [profile, setProfile] = useState("");
 
+  const onSelectPayMethod = (name) => {
+    console.log(name);
+
+    dispatch({ type: "PAYMETHOD", payload: { paymethod: name } });
+  };
+
   const [state, dispatch] = useReducer(reducerFunc, {
     name: "",
     email: "",
@@ -41,6 +49,20 @@ const SignUp = () => {
     pass: "",
     cpass: "",
     gender: "",
+    paymethod: "",
+    balance: "",
+    cardDetails: {
+      number: "",
+      expiry: "",
+      cvv: Math.floor(Math.random() * 999),
+      type: "",
+    },
+    accDetails: {
+      branch: "Lucknow",
+      accNumber: "8743" + Math.floor(Math.random() * 99999999999),
+      ifsc: "ASI0123456",
+      type: "Savings",
+    },
   });
 
   const OnGetSubmit = (s) => {
@@ -113,7 +135,12 @@ const SignUp = () => {
           {step3 && <Page_3 onGetGender={onGetGender} />}
           {step4 && <Page_4 onChange={onGetData} />}
           {step5 && <Page_5 profile={profile} onChange={onGetProfile} />}
-          {step6 && <Page_6 onChange={onGetData} />}
+          {step6 && (
+            <Page_6
+              onChange={onGetData}
+              onSelectPayMethod={onSelectPayMethod}
+            />
+          )}
 
           <div className={styles.button}>
             <Button onclick={() => OnGetSubmit(step)} name="continue" />

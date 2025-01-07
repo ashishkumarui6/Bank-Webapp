@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Title from "../../../shared/Title/intex";
 import Desciptions from "../../../shared/Descriptins";
 import InputField from "../../../widgets/InputField";
 import styles from "./index.module.css";
+import { appbox } from "../../../data/Appbox";
+import AppIcon from "../../../widgets/AppIcon";
 
-const Page_6 = ({ onChange }) => {
+const Page_6 = ({ onChange, onSelectPayMethod }) => {
   return (
     <>
       <div className={styles.funds}>
@@ -13,15 +15,20 @@ const Page_6 = ({ onChange }) => {
         </div>
         <div className={styles.fundsInput}>
           <p>₹</p>
-          <input type="text" />
+          <input id="balance" type="text" onChange={onChange} />
         </div>
         <div className={styles.selectUpi_optoins}>
           <h1>Select UPI App</h1>
           <div className={styles.selectUpi_optoin}>
-            <div className={styles.optionsicon_cont}>
-              <div className={styles.icon}>ion</div>
-              <p>Phonepe</p>
-            </div>
+            {appbox.map((it) => (
+              <AppIcon
+                onClick={onSelectPayMethod}
+                key={it.id}
+                name={it.name}
+                img={it.img}
+                title={it.title}
+              />
+            ))}
           </div>
         </div>
         <ul className={styles.circulTab}>
