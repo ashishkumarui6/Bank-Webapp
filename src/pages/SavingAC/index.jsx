@@ -64,7 +64,7 @@ const SavingAC = () => {
               </p>
             </div>
             <div className={styles.Saving_bot}>
-              <h1>{user[0]?.balance}</h1>
+              <h1>{user[0]?.balances}</h1>
               <div></div>
             </div>
           </div>

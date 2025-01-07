@@ -20,7 +20,6 @@ const Main = ({ element }) => {
   if (!token) {
     return <Navigate to="/login" />;
   }
-
   const toggle = () => {
     setShow(!show);
   };
