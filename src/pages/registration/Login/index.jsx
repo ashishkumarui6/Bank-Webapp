@@ -17,7 +17,7 @@ const Login = () => {
   const onGetData = (e) => {
     setData({ ...data, [e.target.id]: e.target.value });
   };
-  console.log(copydata);
+  // console.log(copydata);
 
   const onLogin = () => {
     const isExistinguser = copydata.find(

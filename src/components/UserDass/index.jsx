@@ -29,8 +29,12 @@ const userDass = [
 const UserDass = () => {
   const navigate = useNavigate();
 
-  const onGetLogout = () => {
-    navigate("/login");
+  const onGetLogout = (name) => {
+    if (name === "Logout") {
+      navigate("/login");
+    } else {
+      alert("Page Not Found");
+    }
   };
   return (
     <div className={styles.userDass}>
@@ -50,7 +54,7 @@ const UserDass = () => {
           return (
             <div key={it.id} className={styles.botItems}>
               <img src={it.icon} alt={it.title} />
-              <p onClick={onGetLogout}>{it.name}</p>
+              <p onClick={() => onGetLogout(it.name)}>{it.name}</p>
             </div>
           );
         })}

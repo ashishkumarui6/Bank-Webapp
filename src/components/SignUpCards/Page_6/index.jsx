@@ -6,7 +6,7 @@ import styles from "./index.module.css";
 import { appbox } from "../../../data/Appbox";
 import AppIcon from "../../../widgets/AppIcon";
 
-const Page_6 = ({ onChange, onSelectPayMethod }) => {
+const Page_6 = ({ onChange, onSelectPayMethod, app }) => {
   return (
     <>
       <div className={styles.funds}>
@@ -22,6 +22,7 @@ const Page_6 = ({ onChange, onSelectPayMethod }) => {
           <div className={styles.selectUpi_optoin}>
             {appbox.map((it) => (
               <AppIcon
+                app={app}
                 onClick={onSelectPayMethod}
                 key={it.id}
                 name={it.name}

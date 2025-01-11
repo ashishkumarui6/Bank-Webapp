@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import styles from "./index.module.css";
 import Layout from "../../ui/layout";
 import AsideMenu from "../../helper/AsideMenu";
@@ -7,13 +7,27 @@ import { useDispatch, useSelector } from "react-redux";
 import Question from "../../components/Question";
 import UserDass from "../../components/UserDass";
 import Notification from "../../components/Notification";
-import { uiActions } from "../../store/ui";
-import PasswordCard from "../../components/PasswordCard";
+import reducer, { uiActions } from "../../store/ui";
 import AllModal from "../../AllModal";
+import AddNewCard from "../../components/AddNewCard";
+import ManagePay from "../../components/ManagePay";
+import axios from "axios";
+import PinModal from "../../PinModal";
+import PasswordCardPin from "../../components/PasswordCard";
+import SuccessMessage from "../../components/SuccessMessage";
+import AllAddcardCompents from "../../components/AllAddcardCompents";
 
+const ReducerFun = (state, action) => {
+  switch (action.type) {
+    case "ADDNEWDATA":
+      return { ...state, ...action.payload };
+    default:
+      return state;
+  }
+};
 const Main = ({ element }) => {
   const [show, setShow] = useState(false);
-  const dispatch = useDispatch();
+  const Dispatch = useDispatch();
   const token = localStorage.getItem("token");
   const isModalName = useSelector((state) => state.ui.isModalName);
 
@@ -29,11 +43,60 @@ const Main = ({ element }) => {
     setShow(false);
   }, [pathname]);
 
+  const [state, dispatch] = useReducer(ReducerFun, {
+    cardNum: "",
+    month: "",
+    year: "",
+    cvv: "",
+    cardHolderName: "",
+    cardType: "",
+    bankCard: "",
+  });
+
+  const onGetAddNewDATA = (e) => {
+    const key = e.target.id;
+    const val = e.target.value;
+
+    const addNewData = { ...state, [key]: val };
+
+    dispatch({ type: "ADDNEWDATA", payload: addNewData });
+  };
+
+  const addNewBtnFn = () => {
+    const config = {
+      url: "https://bank-app-652c0-default-rtdb.firebaseio.com/users.json",
+      method: "POST",
+      data: state,
+    };
+
+    axios(config)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => console.log(err));
+
+    Dispatch(uiActions.onModalOpen({ name: "addnewcard" }));
+  };
+
+  const onGetClose = () => {
+    Dispatch(uiActions.onModalOpen({ name: "" }));
+  };
+
+  const [checkpass, setCheckpass] = useState(0);
+
+  const OnGetDataPass = (e) => {
+    setCheckpass(e.target.value);
+  };
+
+  const OnGetpassAction = () => {
+    Dispatch(uiActions.onModalOpen({ name: "vivecard" }));
+  };
+
   return (
     <>
       {isModalName && (
         <div
-          onClick={() => dispatch(uiActions.onModalOpen({ name: "" }))}
+          onClick={() => Dispatch(uiActions.onModalOpen({ name: "" }))}
           style={{
             background: "rgba(0,0,0,.5)",
             zIndex: 100,
@@ -46,29 +109,34 @@ const Main = ({ element }) => {
       {isModalName === "faq" && <Question />}
       {isModalName === "notification" && <Notification />}
       {isModalName === "profile" && <UserDass />}
-      {isModalName === "pinBtn" && <PasswordCard />}
+      {isModalName === "pinBtn" && (
+        <PinModal>
+          <PasswordCardPin onClick={OnGetpassAction} onchange={OnGetDataPass} />
+        </PinModal>
+      )}
+      {isModalName === "addnewcard" && (
+        <PinModal>
+          <SuccessMessage onclickFun={onGetClose} />
+        </PinModal>
+      )}
       {isModalName === "addBtn" && (
         <AllModal>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem
-          fuga fugit esse doloremque corporis omnis debitis commodi, ipsam
-          voluptas repellat ut iste voluptates quia, animi tenetur! Quia omnis
-          repellat saepe nihil ratione, reiciendis at explicabo odit distinctio
-          nobis voluptate ullam impedit debitis velit ducimus est illum dolorem
-          dolores aspernatur fugit. Obcaecati, libero quisquam? Laudantium unde
-          debitis sit quaerat culpa quae ipsa sequi fugit officia! Maxime cum
-          modi, amet quae vel et, fugit doloribus placeat mollitia repudiandae
-          sint ipsum nostrum sit, deserunt illum. Facere numquam nihil
-          dignissimos, atque a dolor molestias totam explicabo quidem odio ipsam
-          quae deserunt voluptatibus itaque in!
+          <AddNewCard
+            onGetAddNewDATA={onGetAddNewDATA}
+            onclickFn={addNewBtnFn}
+          />
         </AllModal>
       )}
 
       {isModalName === "managepay" && (
         <AllModal>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem quos
-            nobis optio facilis minus a velit praesentium commodi possimus ipsa!
-          </p>
+          <ManagePay />
+        </AllModal>
+      )}
+
+      {isModalName === "vivecard" && (
+        <AllModal>
+          <AllAddcardCompents />
         </AllModal>
       )}
 

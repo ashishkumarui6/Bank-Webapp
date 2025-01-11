@@ -1,0 +1,33 @@
+
+
+.checkImg{
+    border-radius: 50%;
+    height: 100px;
+    margin: 0 auto;
+    overflow: hidden;
+    width: 100px;
+}
+
+.checkImg img{
+    height: 100%;
+    width: 100%;
+}
+
+.check_para{
+    margin: 10px;
+    text-align: center;
+}
+
+
+.check_para h1{
+    color: #d70026;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+
+.button{
+    margin: 10px;
+    text-align: center;
+}

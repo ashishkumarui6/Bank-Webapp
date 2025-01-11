@@ -1,0 +1,90 @@
+.modal_contant{
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .25);
+    height: 100vh;
+    overflow: hidden;
+    overflow-y: auto;
+    padding: 20px;
+    width: 100%;
+}
+
+.modal_contant .AddCard_logo{
+    height: 70px;
+    margin: auto;
+    text-align: center;
+    width: 200px;
+}
+
+.AddCard_logo img{
+    height: 100%;
+    width: 100%;
+}
+
+.modal_contant h1{
+    font-size: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+    text-decoration: underline;
+    font-weight: 400;
+    color: #000;
+}
+
+
+.myDebitCard{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+
+.card_body{
+    margin-left: -80px;
+    z-index: 1;
+}
+
+
+
+.debit_fornt_card{
+    background-color: #161616;
+    border: 1px solid #9e9e9e;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .35);
+    height: 180px;
+    overflow: hidden;
+    padding: 15px 0;
+    position: relative;
+    width: 300px;
+}
+
+.debitcard_back{
+    left: 55%;
+    position: absolute;
+    top: 20px;
+    transform: translateX(-50%);
+    z-index: -1;
+}
+
+
+.back_card{
+    background-color: #161616;
+    border: 1px solid #9e9e9e;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .35);
+    height: 180px;
+    overflow: hidden;
+    padding: 20px;
+    position: relative;
+    width: 300px;
+}
+
+
+.back_card::before{
+    background-color: #fff;
+    content: "";
+    height: 35px;
+    position: absolute;
+    top: 30px;
+    width: 100%;
+}

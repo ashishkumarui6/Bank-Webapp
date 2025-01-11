@@ -137,6 +137,7 @@ const SignUp = () => {
           {step5 && <Page_5 profile={profile} onChange={onGetProfile} />}
           {step6 && (
             <Page_6
+              app={state.paymethod}
               onChange={onGetData}
               onSelectPayMethod={onSelectPayMethod}
             />

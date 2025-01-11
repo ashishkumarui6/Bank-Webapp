@@ -2,9 +2,10 @@ import React from "react";
 import styles from "./index.module.css";
 import profile from "../../assets/men.jpg";
 import { FaArrowRight } from "react-icons/fa";
-const PasswordCard = () => {
+
+const PasswordCardPin = ({ onchange, onClick }) => {
   return (
-    <div className={styles.password_content}>
+    <>
       <div>
         <div className={styles.password_userProfile}>
           <img src={profile} alt="profile" />
@@ -18,13 +19,14 @@ const PasswordCard = () => {
         <p>Please Enter Your Password</p>
       </div>
       <div className={styles.password_inputArea}>
-        <input type="password" />
-        <div>
+        <input type="password" onChange={onchange} id="interpass" />
+
+        <div onClick={onClick}>
           <FaArrowRight color="#fff" />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
-export default PasswordCard;
+export default PasswordCardPin;

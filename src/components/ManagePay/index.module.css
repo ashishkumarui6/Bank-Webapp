@@ -1,0 +1,40 @@
+.content{
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .25);
+    height: 100vh;
+    overflow: hidden;
+    overflow-y: auto;
+    padding: 20px;
+    width: 100%;
+}
+
+.content_title{
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #000;
+}
+
+.payee{
+    align-items: center;
+    border-bottom: 1px solid #000;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+
+.payee .payee_left{
+    align-items: center;
+    column-gap: 10px;
+    display: flex;
+}
+
+
+.payee .payee_right{
+    align-items: center;
+    column-gap: 10px;
+    display: flex;
+}
