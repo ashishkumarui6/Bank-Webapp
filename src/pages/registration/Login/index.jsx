@@ -25,8 +25,9 @@ const Login = () => {
     );
 
     if (isExistinguser) {
-      const { password, ...rest } = isExistinguser;
-      localStorage.setItem("user", JSON.stringify(rest));
+      // const { password, ...rest } = isExistinguser;
+      localStorage.setItem("user", JSON.stringify(isExistinguser));
+      localStorage.setItem("token", "login");
       navigate("/");
     } else {
       alert("Invalid Credentials");

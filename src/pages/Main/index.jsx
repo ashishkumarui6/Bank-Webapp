@@ -29,6 +29,10 @@ const Main = ({ element }) => {
   const [show, setShow] = useState(false);
   const Dispatch = useDispatch();
   const token = localStorage.getItem("token");
+  const matchPass = JSON.parse(localStorage.getItem("user"));
+
+  console.log(matchPass);
+
   const isModalName = useSelector((state) => state.ui.isModalName);
 
   if (!token) {
@@ -64,7 +68,7 @@ const Main = ({ element }) => {
 
   const addNewBtnFn = () => {
     const config = {
-      url: "https://bank-app-652c0-default-rtdb.firebaseio.com/users.json",
+      url: "https://bank-app-652c0-default-rtdb.firebaseio.com/cards.json",
       method: "POST",
       data: state,
     };
@@ -82,14 +86,20 @@ const Main = ({ element }) => {
     Dispatch(uiActions.onModalOpen({ name: "" }));
   };
 
-  const [checkpass, setCheckpass] = useState(0);
+  const [checkpass, setCheckpass] = useState("");
 
   const OnGetDataPass = (e) => {
     setCheckpass(e.target.value);
   };
 
   const OnGetpassAction = () => {
-    Dispatch(uiActions.onModalOpen({ name: "vivecard" }));
+    // console.log(typeof );
+
+    if (matchPass.pass === checkpass) {
+      Dispatch(uiActions.onModalOpen({ name: "vivecard" }));
+    } else {
+      alert("Wrong Password");
+    }
   };
 
   return (

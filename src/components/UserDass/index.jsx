@@ -27,10 +27,13 @@ const userDass = [
   },
 ];
 const UserDass = () => {
+  // const logoutRemove = JSON.parse(localStorage.getItem("user"));
   const navigate = useNavigate();
 
   const onGetLogout = (name) => {
     if (name === "Logout") {
+      localStorage.removeItem("user");
+      localStorage.removeItem("token");
       navigate("/login");
     } else {
       alert("Page Not Found");
