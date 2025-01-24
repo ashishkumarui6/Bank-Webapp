@@ -5,8 +5,12 @@ import InputField from "../../../widgets/InputField";
 import Button from "../../../widgets/Button";
 import styles from "./index.module.css";
 import MyContext from "../../../context/MyContext";
+import { useDispatch } from "react-redux";
+import { uiActions } from "../../../store/ui";
 
 const Login = () => {
+  const Dispatch = useDispatch();
+
   const { copydata } = useContext(MyContext);
   const navigate = useNavigate();
   const [data, setData] = useState({
@@ -30,6 +34,7 @@ const Login = () => {
       localStorage.setItem("token", "login");
       navigate("/");
     } else {
+      // Dispatch(uiActions.onModalOpen({ name: "alertCredentials" }));
       alert("Invalid Credentials");
     }
   };
@@ -59,7 +64,14 @@ const Login = () => {
           <div className={styles.button}>
             <Button onclick={onLogin} name="Sign In" />
           </div>
-          <h2>Forgot the password?</h2>
+          <p
+            onClick={() =>
+              Dispatch(uiActions.onModalOpen({ name: "onPassmodal" }))
+            }
+          >
+            Forgot the password?
+          </p>
+
           <div className={styles.signin_para}>
             <p>Don't Have An Account?</p>
             <span>

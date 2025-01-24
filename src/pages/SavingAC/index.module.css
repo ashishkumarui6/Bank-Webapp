@@ -230,3 +230,17 @@
     justify-content: center;
     width: 30px;
 }
+
+.Saving_bot{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.banlance{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 40px;
+}

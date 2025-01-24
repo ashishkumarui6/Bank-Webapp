@@ -1,0 +1,132 @@
+.TransactionModal{
+    height: 100vh;
+}
+
+.reverseBtn{
+    cursor: pointer;
+}
+.TransactionModal_top{
+    align-items: center;
+    background: #161616;
+    column-gap: 10px;
+    display: flex;
+    padding: 10px 20px;
+}
+
+.TransactionModal_top .top_left{
+    background-color: #fff;
+    border-radius: 50px;
+    height: 60px;
+    width: 60px;
+}
+
+.top_left img{
+    width: 100%;
+    height: 100%;
+}
+
+.payeeShow_top .top_right h2{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+}
+.payeeShow_top .top_right p{
+    color: #9e9e9e;
+}
+
+.TransactionModal_mid{
+    align-items: center;
+    background-color: #fff;
+    display: flex;
+    height: 73vh;
+    justify-content: center;
+    overflow-y: auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.title{
+    color: #161616;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.amount_content{
+    align-items: baseline;
+    column-gap: 5px;
+    display: flex;
+    height: 50px;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding: 0 10px;
+    width: 200px;
+}
+
+.amount_content p{
+    color: #161616;
+    font-size: 28px;
+}
+
+.amount_input{
+    background-color: transparent;
+    border: none;
+    color: #161616;
+    font-size: 50px;
+    height: 100%;
+    transition: width .1s ease-in-out;
+}
+
+input{
+    border: 1px solid #000;
+    border-radius: 10px;
+    height: 40px;
+    padding: 3px 8px;
+    text-align: center;
+    width: 150px;
+}
+
+
+.TransactionModal_bottom{
+    align-items: center;
+    background-color: #fff;
+    border-top: 1px solid #161616;
+    justify-content: flex-end;
+    padding: 10px 20px;
+    width: 100%;
+}
+
+.logo{
+    background: #fff;
+    border-radius: 5px;
+    height: 20px;
+    padding: 1px 3px;
+    width: 35px;
+}
+
+.logo img{
+    width: 100%;
+    height: 100%;
+}
+.bottom_para{
+    align-items: center;
+    background-color: #393d3e;
+    border-radius: 10px;
+    column-gap: 5px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto 10px;
+    padding: 5px 10px;
+    width: 180px;
+}
+
+.bottom_para p{
+    color: #fff;
+    font-size: 13px;
+}
+
+
+
+.TransactionModal_bottom .btn{
+    width: 150px;
+}

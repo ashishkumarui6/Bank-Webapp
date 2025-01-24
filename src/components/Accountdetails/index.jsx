@@ -12,7 +12,7 @@ const Accountdetails = () => {
   return (
     <>
       <div className={styles.Account_details_top}>
-        <AcTitle name="Personal details" />
+        <AcTitle color="#d70026" name="Personal details" />
         <div className={styles.content_details}>
           <div className={styles.details}>
             <p className={styles.details_p}>Full Legal Name</p>
@@ -26,7 +26,7 @@ const Accountdetails = () => {
       </div>
 
       <div className={styles.Account_details_mid_1}>
-        <AcTitle name="Account details" />
+        <AcTitle color="#d70026" name="Account details" />
         <div className={styles.content_details}>
           <div className={styles.details}>
             <p className={styles.details_p}>Customer ID</p>
@@ -59,7 +59,7 @@ const Accountdetails = () => {
         </div>
       </div>
       <div className={styles.Account_details_mid_2}>
-        <AcTitle name="Contact details" />
+        <AcTitle color="#d70026" name="Contact details" />
         <div className={styles.content_details}>
           <div className={styles.details}>
             <p className={styles.details_p}>Phone number</p>
@@ -72,7 +72,7 @@ const Accountdetails = () => {
         </div>
       </div>
       <div className={styles.Account_details_bottom}>
-        <AcTitle name="Employment details" />
+        <AcTitle color="#d70026" name="Employment details" />
         <div className={styles.content_details}>
           <div className={styles.details}>
             <p className={styles.details_p}>employment type</p>

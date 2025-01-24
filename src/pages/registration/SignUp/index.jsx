@@ -84,11 +84,10 @@ const SignUp = () => {
       setStep6(true);
     } else {
       const config = {
-        url: "https://bank-app-652c0-default-rtdb.firebaseio.com/users.json",
+        url: "https://bank-webapp-default-rtdb.firebaseio.com/cards/users.json",
         method: "POST",
         data: state,
       };
-
       axios(config)
         .then((res) => {
           localStorage.setItem("token", "login");

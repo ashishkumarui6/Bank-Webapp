@@ -24,8 +24,12 @@
 }
 
 
-.loginContainer h2{
+.loginContainer p{
     text-align: center;
+    color: #9e9e9e;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 450;
 }
 
 .button{

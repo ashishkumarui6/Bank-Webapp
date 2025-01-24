@@ -88,6 +88,12 @@
     color: #000;
 }
 
+.recent_comntenar{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
 .recent_recents .Recents_add{
     align-items: center;
     column-gap: 5px;
@@ -114,6 +120,28 @@
 
 
 .Recents_add_p{
+    color: #161616;
+    font-size: 14px;
+    text-transform: capitalize;
+}
+
+.add_payee{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.add_payee .payee_img{
+    cursor: pointer;
+    height: 60px;
+    width: 60px;
+}
+
+.payee_img img{
+    width: 100%;
+    height: 100%;
+}
+.add_payee p{
     color: #161616;
     font-size: 14px;
     text-transform: capitalize;

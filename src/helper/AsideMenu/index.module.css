@@ -9,7 +9,6 @@
     width: 100%;
     z-index: 10000000000000000;
     transition: 0.5s ease-in;
-    /* display: none; */
     animation: 0.5s ease forwards;
 }
 
@@ -30,6 +29,16 @@
     animation:leftRight 0.5s ease forwards;
     z-index: 999999999999;
 
+}
+
+@keyframes leftRight {
+    
+    0%{
+        transform: translateX(-200px);
+    }
+    100%{
+        transform: translateX(0); 
+    }
 }
 
 .AsideMenu_top{
@@ -117,21 +126,4 @@
 }
 
 
-@keyframes leftRight {
-    
-    0%{
-        transform: translateX(-200px);
-    }
-    100%{
-        transform: translateX(0); 
-    }
-}
-/* @keyframes leftRight2 {
-    
-    100%{
-        transform: translateX(0);
-    }
-    0%{
-        transform: translateX(200px); 
-    }
-} */
+

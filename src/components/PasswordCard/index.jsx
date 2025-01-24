@@ -20,7 +20,6 @@ const PasswordCardPin = ({ onchange, onClick }) => {
       </div>
       <div className={styles.password_inputArea}>
         <input type="password" onChange={onchange} id="interpass" />
-
         <div onClick={onClick}>
           <FaArrowRight color="#fff" />
         </div>

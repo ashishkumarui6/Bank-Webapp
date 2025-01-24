@@ -1,19 +1,27 @@
 import React, { useContext } from "react";
 import styles from "./index.module.css";
 import icon from "../../assets/icon.svg";
-import { Link } from "react-router-dom";
 import ImgIcon from "../../assets/ImgIcon.svg";
 import Img_add from "../../assets/img_add.svg";
 import TransferIcons from "../../widgets/TransferIcons";
 import { transferIcons } from "../../data/TransferIcons";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { uiActions } from "../../store/ui";
+import Addpayee from "../../assets/adminlogo.svg";
+import axios from "axios";
+import MyContext from "../../context/MyContext";
 
 const Pay = () => {
-  const dispatch = useDispatch();
-  const OnGetBtnNAme = (name) => {
-    dispatch(uiActions.onModalOpen({ name: name }));
+  const Dispatch = useDispatch();
+  const { addpayee } = useContext(MyContext);
+  const OnGetBtnName = (name) => {
+    Dispatch(uiActions.onModalOpen({ name: name }));
   };
+
+  const isModalName = useSelector((state) => state.ui.isModalName);
+
+  console.log(addpayee);
+
   return (
     <>
       <div className={styles.knowInfo}>
@@ -23,7 +31,7 @@ const Pay = () => {
         <p>Know about your upgraded transfer limits</p>
       </div>
       <div
-        onClick={() => dispatch(uiActions.onModalOpen({ name: "managepay" }))}
+        onClick={() => Dispatch(uiActions.onModalOpen({ name: "managepay" }))}
         className={styles.pay_pay}
       >
         <div className={styles.pay_pay_item}>
@@ -37,13 +45,38 @@ const Pay = () => {
       </div>
       <div className={styles.recent_recents}>
         <h1 className={styles.Title_title}>Recents</h1>
-        <div className={styles.Recents_add}>
-          <div className={styles.Recents_add_btn}>
-            <div className={styles.Recents_add_img}>
-              <img src={Img_add} alt="img_Add" />
+        <div className={styles.recent_comntenar}>
+          <div className={styles.Recents_add}>
+            <div className={styles.Recents_add_btn}>
+              <div
+                onClick={() =>
+                  Dispatch(uiActions.onModalOpen({ name: "AddNewPayee" }))
+                }
+                className={styles.Recents_add_img}
+              >
+                <img src={Img_add} alt="img_Add" />
+              </div>
+              <div className={styles.Recents_add_p}>Add New Payee</div>
             </div>
-            <div className={styles.Recents_add_p}>Add New Payee</div>
           </div>
+          {addpayee.map((it, index) => {
+            return (
+              <>
+                <div
+                  onClick={() =>
+                    Dispatch(uiActions.onModalOpen({ name: "onOpenModal" }))
+                  }
+                  key={it.dId}
+                  className={styles.add_payee}
+                >
+                  <div className={styles.payee_img}>
+                    <img src={Addpayee} alt="imgAdd" />
+                  </div>
+                  <p>{it.AcName}</p>
+                </div>
+              </>
+            );
+          })}
         </div>
       </div>
       <div>
@@ -52,7 +85,7 @@ const Pay = () => {
           {transferIcons.map((it) => {
             return (
               <TransferIcons
-                onClick={OnGetBtnNAme}
+                onClick={OnGetBtnName}
                 key={it.id}
                 name={it.name}
                 icon={it.icon}

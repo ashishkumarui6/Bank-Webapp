@@ -6,7 +6,13 @@ import { IoLogoXbox } from "react-icons/io5";
 import { IoSettingsOutline } from "react-icons/io5";
 import { IoBriefcaseSharp } from "react-icons/io5";
 import { FaCreditCard } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { uiActions } from "../../store/ui";
 const CardSetting = () => {
+  const Disptch = useDispatch();
+
+  const isModalName = useSelector((state) => state.ui.isModalName);
+
   return (
     <div className={styles.CardSetting}>
       <div className={styles.CardSetting_card_top}>
@@ -31,7 +37,12 @@ const CardSetting = () => {
           </div>
         </div>
         <div className={styles.card_right}>
-          <div className={styles.settingTab}>
+          <div
+            onClick={() =>
+              Disptch(uiActions.onModalOpen({ name: "viewCardDetails" }))
+            }
+            className={styles.settingTab}
+          >
             <h1>View Card Details</h1>
             <IoIosArrowForward color="#000" />
           </div>
@@ -43,7 +54,12 @@ const CardSetting = () => {
             <h1>Card Locks</h1>
             <IoIosArrowForward color="#000" />
           </div>
-          <div className={styles.settingTab}>
+          <div
+            onClick={() =>
+              Disptch(uiActions.onModalOpen({ name: "setAtmPin" }))
+            }
+            className={styles.settingTab}
+          >
             <h1>Set ATM PIN</h1>
             <IoIosArrowForward color="#000" />
           </div>

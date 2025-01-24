@@ -11,13 +11,26 @@
     z-index: 99999999;
 }
 
+
+
 .AllModal_dropback .AllModal_dropback_right_box{
-    animation: Modal_fadeInRight__W1x2L .3s ease-out forwards;
     position: fixed;
     right: 0;
     top: 0;
     width: 50%;
     z-index: 9999999999;
     height: auto;
-    background: red;
+    background: #fff;
+    animation:Rightleft 0.5s ease forwards;
+    z-index: 999999999999;
+}
+
+@keyframes Rightleft {
+    
+    0%{
+        transform: translateX(200px);
+    }
+    100%{
+        transform: translateX(0); 
+    }
 }

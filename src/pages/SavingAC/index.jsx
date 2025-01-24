@@ -4,13 +4,14 @@ import axios from "axios";
 import { data, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { uiActions } from "../../store/ui";
-// import AllModal from "../../AllModal";
-// import AllMiniModal from "../../AllMiniModal";
-// import PasswordCard from "../../components/PasswordCard";
+import { IoMdEyeOff } from "react-icons/io";
+import { IoEye } from "react-icons/io5";
+import chip from "../../assets/chip.png";
 
 const SavingAC = () => {
   const dispatch = useDispatch();
   const [user, setUser] = useState([]);
+  const [show, setShow] = useState(true);
   const isModalName = useSelector((state) => state.ui.isModalName);
 
   const getUserCopy = () => {
@@ -37,6 +38,10 @@ const SavingAC = () => {
   console.log(user);
 
   // const { name, email } = user;
+
+  const OnGetShow = () => {
+    setShow(!show);
+  };
   return (
     <>
       <div>
@@ -52,20 +57,58 @@ const SavingAC = () => {
         <div className={styles.SavingAC_body}>
           <div className={styles.Saving_saving}>
             <div className={styles.Saving_top}>
-              <p>Saving Account</p>
+              <p style={{ fontSize: "18px", fontWeight: "500" }}>
+                Saving Account
+              </p>
               <Link to="/addmoney">
                 <p>+</p>
               </Link>
             </div>
             <div className={styles.Saving_mid}>
-              <p>
+              <p style={{ fontSize: "16px", fontWeight: "400" }}>
                 current balance
-                <span> . December</span>
+                <span style={{ fontSize: "16px", fontWeight: "500" }}>
+                  . December
+                </span>
               </p>
             </div>
             <div className={styles.Saving_bot}>
-              <h1>{user[0]?.balances}</h1>
-              <div></div>
+              <div className={styles.banlance}>
+                <div>
+                  {show ? (
+                    <p
+                      style={{
+                        fontSize: "28px",
+                        fontWeight: "500",
+                        color: "#000",
+                      }}
+                    >
+                      ●●●●●●
+                    </p>
+                  ) : (
+                    <p
+                      style={{
+                        fontSize: "24px",
+                        fontWeight: "500",
+                        color: "#000",
+                      }}
+                    >
+                      ₹ 10
+                    </p>
+                  )}
+                </div>
+                <div onClick={OnGetShow} className={styles.show_icon}>
+                  {show ? (
+                    <div className={styles.icon}>
+                      <IoMdEyeOff size={28} color="#000" />
+                    </div>
+                  ) : (
+                    <div className={styles.icon}>
+                      <IoEye size={28} color="#000" />
+                    </div>
+                  )}
+                </div>
+              </div>
             </div>
           </div>
           <div
@@ -78,17 +121,14 @@ const SavingAC = () => {
             </div>
             <div className={styles.Card_card_mid}>
               <div className={styles.Card_card_mid_chip}>
-                <img
-                  src="https://ambankservices.netlify.app/static/media/chip.2a380930d6c905bff754.png"
-                  alt="img  "
-                />
+                <img src={chip} alt="img" />
               </div>
               <p className={styles.Card_card_mid_p}>
                 Valid: <span>../29</span>
               </p>
             </div>
             <div className={styles.Card_card_bot}>
-              <p>0000 0000 0000 5555</p>
+              <p>●●●● ●●●● ●●●● 5555</p>
             </div>
           </div>
           <div className={styles.Addcard_addcard}>

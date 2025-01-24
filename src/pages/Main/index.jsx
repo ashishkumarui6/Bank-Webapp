@@ -14,8 +14,17 @@ import ManagePay from "../../components/ManagePay";
 import axios from "axios";
 import PinModal from "../../PinModal";
 import PasswordCardPin from "../../components/PasswordCard";
-import SuccessMessage from "../../components/SuccessMessage";
 import AllAddcardCompents from "../../components/AllAddcardCompents";
+import ScanQr from "../../components/ScanQr";
+import BankTransfer from "../../components/BankTransfer";
+import MobilePayment from "../../components/MobilePayment";
+import UPIPayment from "../../components/UPIPayment";
+import Message from "../../components/Message";
+import check from "../../assets/check.png";
+import AddNewPayee from "../../components/AddNewPayee";
+import TransactionModal from "../../components/TransactionModal";
+import TransactionAddMoneyModal from "../../components/TransactionAddMoneyModal";
+import ChangesCard from "../../components/ChangesCard";
 
 const ReducerFun = (state, action) => {
   switch (action.type) {
@@ -35,9 +44,10 @@ const Main = ({ element }) => {
 
   const isModalName = useSelector((state) => state.ui.isModalName);
 
-  if (!token) {
+  if (token) {
     return <Navigate to="/login" />;
   }
+
   const toggle = () => {
     setShow(!show);
   };
@@ -68,7 +78,7 @@ const Main = ({ element }) => {
 
   const addNewBtnFn = () => {
     const config = {
-      url: "https://bank-app-652c0-default-rtdb.firebaseio.com/cards.json",
+      url: "https://bank-webapp-default-rtdb.firebaseio.com/cards.json",
       method: "POST",
       data: state,
     };
@@ -78,11 +88,10 @@ const Main = ({ element }) => {
         console.log(res);
       })
       .catch((err) => console.log(err));
-
     Dispatch(uiActions.onModalOpen({ name: "addnewcard" }));
   };
 
-  const onGetClose = () => {
+  const onMessageShow = () => {
     Dispatch(uiActions.onModalOpen({ name: "" }));
   };
 
@@ -95,13 +104,20 @@ const Main = ({ element }) => {
   const OnGetpassAction = () => {
     // console.log(typeof );
 
+    Dispatch(uiActions.onModalOpen({ name: "vivecard" }));
     if (matchPass.pass === checkpass) {
-      Dispatch(uiActions.onModalOpen({ name: "vivecard" }));
     } else {
       alert("Wrong Password");
     }
   };
 
+  const onGetOpenCardDetails = () => {
+    Dispatch(uiActions.onModalOpen({ name: "vivecard" }));
+  };
+
+  const onGetCheack = () => {
+    Dispatch(uiActions.onModalOpen({ name: "onSuccess" }));
+  };
   return (
     <>
       {isModalName && (
@@ -116,6 +132,7 @@ const Main = ({ element }) => {
           }}
         ></div>
       )}
+
       {isModalName === "faq" && <Question />}
       {isModalName === "notification" && <Notification />}
       {isModalName === "profile" && <UserDass />}
@@ -126,7 +143,12 @@ const Main = ({ element }) => {
       )}
       {isModalName === "addnewcard" && (
         <PinModal>
-          <SuccessMessage onclickFun={onGetClose} />
+          <Message
+            name="Your Card Is Successfully Added"
+            src={check}
+            onclickFun={onMessageShow}
+            BtnName="close"
+          />
         </PinModal>
       )}
       {isModalName === "addBtn" && (
@@ -143,6 +165,50 @@ const Main = ({ element }) => {
           <ManagePay />
         </AllModal>
       )}
+      {isModalName === "AddNewPayee" && (
+        <AllModal>
+          <AddNewPayee />
+        </AllModal>
+      )}
+
+      {isModalName === "addshow" && (
+        <PinModal>
+          <Message
+            name="Payee Is Successfully Added"
+            src={check}
+            onclickFun={onMessageShow}
+            BtnName="Back"
+          />
+        </PinModal>
+      )}
+
+      {isModalName === "onOpenModal" && (
+        <AllModal>
+          <TransactionModal />
+        </AllModal>
+      )}
+
+      {isModalName === "ProceedMoney" && (
+        <AllModal>
+          <TransactionAddMoneyModal />
+        </AllModal>
+      )}
+
+      {isModalName === "onOpenSet" && (
+        <PinModal>
+          <PasswordCardPin onClick={onGetCheack} />
+        </PinModal>
+      )}
+      {isModalName === "onSuccess" && (
+        <PinModal>
+          <Message
+            name="Money Send Successfully"
+            src={check}
+            onclickFun={onMessageShow}
+            BtnName="Back"
+          />
+        </PinModal>
+      )}
 
       {isModalName === "vivecard" && (
         <AllModal>
@@ -152,51 +218,73 @@ const Main = ({ element }) => {
 
       {isModalName === "Scan QR" && (
         <AllModal>
-          <h1>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure,
-            rerum. Dolorem minima maxime quidem, magnam possimus omnis at autem
-            cupiditate aut ducimus in natus maiores facere. Dolore, blanditiis
-            unde ullam sint facilis ut eius animi rerum? Totam doloremque soluta
-            quam repellat, id sunt ullam, ipsa dignissimos iusto commodi
-            deserunt similique!
-          </h1>
+          <ScanQr />
         </AllModal>
       )}
       {isModalName === "Bank Transfer" && (
         <AllModal>
-          <h1>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure,
-            rerum. Dolorem minima maxime quidem, magnam possimus omnis at autem
-            cupiditate aut ducimus in natus maiores facere. Dolore, blanditiis
-            unde ullam sint facilis ut eius animi rerum? Totam doloremque soluta
-            quam repellat, id sunt ullam, ipsa dignissimos iusto commodi
-            deserunt similique!
-          </h1>
+          <BankTransfer />
         </AllModal>
       )}
+      {isModalName === "onBanktransfer" && (
+        <PinModal>
+          <Message
+            name="Payee Is Successfully Added"
+            src={check}
+            onclickFun={onMessageShow}
+            BtnName="Back"
+          />
+        </PinModal>
+      )}
+
       {isModalName === "Phone Number" && (
         <AllModal>
-          <h1>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure,
-            rerum. Dolorem minima maxime quidem, magnam possimus omnis at autem
-            cupiditate aut ducimus in natus maiores facere. Dolore, blanditiis
-            unde ullam sint facilis ut eius animi rerum? Totam doloremque soluta
-            quam repellat, id sunt ullam, ipsa dignissimos iusto commodi
-            deserunt similique!
-          </h1>
+          <MobilePayment />
         </AllModal>
       )}
       {isModalName === "UPI ID" && (
         <AllModal>
-          <h1>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure,
-            rerum. Dolorem minima maxime quidem, magnam possimus omnis at autem
-            cupiditate aut ducimus in natus maiores facere. Dolore, blanditiis
-            unde ullam sint facilis ut eius animi rerum? Totam doloremque soluta
-            quam repellat, id sunt ullam, ipsa dignissimos iusto commodi
-            deserunt similique!
-          </h1>
+          <UPIPayment />
         </AllModal>
+      )}
+
+      {isModalName === "viewCardDetails" && (
+        <PinModal>
+          <PasswordCardPin onClick={onGetOpenCardDetails} />
+        </PinModal>
+      )}
+      {isModalName === "setAtmPin" && (
+        <PinModal>
+          <ChangesCard
+            placeholder1="Acount Number"
+            placeholder2="Set ATM Pin (6 digits)"
+            onclick={() =>
+              Dispatch(uiActions.onModalOpen({ name: "OnPinSuccess" }))
+            }
+          />
+        </PinModal>
+      )}
+
+      {isModalName === "OnPinSuccess" && (
+        <PinModal>
+          <Message
+            name="Atm Pin Is Successfully Generated"
+            src={check}
+            onclickFun={onMessageShow}
+            BtnName="Close"
+          />
+        </PinModal>
+      )}
+
+      {isModalName === "onPassmodal" && (
+        <PinModal>
+          <Message
+            name="Atm Pin Is Successfully Generated"
+            src={check}
+            onclickFun={onMessageShow}
+            BtnName="Close"
+          />
+        </PinModal>
       )}
 
       {show && <AsideMenu toggle={toggle} />}
