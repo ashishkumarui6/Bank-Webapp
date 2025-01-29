@@ -38,10 +38,8 @@
 /* /////////////////// */
 
 
-.appBox_active{
-    align-items: center;
-    display: flex;
-    flex-direction: column;
+.active{
+    border: 2px solid black;
 }
 
 .appBox_active .appBox_wrap{

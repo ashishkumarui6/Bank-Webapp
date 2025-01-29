@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./index.module.css";
 import InputField from "../../widgets/InputField";
 import Button from "../../widgets/Button";
-const AddNewCard = ({ onGetAddNewDATA, onclickFn }) => {
+const AddNewCard = ({ onGetAddNewDATA, onclickFn, disabled }) => {
   return (
     <div className={styles.Modal_content}>
       <div className={styles.content_card}></div>
@@ -71,7 +71,7 @@ const AddNewCard = ({ onGetAddNewDATA, onclickFn }) => {
         />
       </div>
       <div>
-        <Button onclick={onclickFn} name="Add Card" />
+        <Button disabled={disabled} onclick={onclickFn} name="Add Card" />
       </div>
     </div>
   );

@@ -9,8 +9,9 @@ const MyState = ({ children }) => {
   const [addpayee, setAddPayee] = useState([]);
 
   const getCopyData = () => {
+    setLoading(true);
     axios
-      .get("https://bank-app-652c0-default-rtdb.firebaseio.com/users.json")
+      .get("https://bank-webapp-default-rtdb.firebaseio.com/users.json")
       .then((res) => {
         const newAddData = [];
 
@@ -18,6 +19,7 @@ const MyState = ({ children }) => {
           newAddData.push({ ...res.data[id], dId: id });
         }
         setCopyData(newAddData);
+        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
@@ -25,6 +27,7 @@ const MyState = ({ children }) => {
   };
 
   const getaddCard = () => {
+    setLoading(true);
     axios
       .get("https://bank-webapp-default-rtdb.firebaseio.com/cards.json")
       .then((res) => {
@@ -34,6 +37,7 @@ const MyState = ({ children }) => {
         }
 
         setAddCard(newAddcard);
+        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
@@ -41,6 +45,7 @@ const MyState = ({ children }) => {
   };
 
   const getAddPyaee = () => {
+    setLoading(true);
     axios
       .get("https://bank-webapp-default-rtdb.firebaseio.com/addpyee.json")
       .then((res) => {
@@ -51,6 +56,7 @@ const MyState = ({ children }) => {
         }
 
         setAddPayee(newaddpayee);
+        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
@@ -65,7 +71,7 @@ const MyState = ({ children }) => {
 
   return (
     <MyContext.Provider
-      value={{ loading, setLoading, copydata, addCard, addpayee }}
+      value={{ loading, setLoading, copydata, addCard, addpayee, getAddPyaee }}
     >
       {children}
     </MyContext.Provider>

@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./index.module.css";
+import cardlogo from "../../assets/cardlogo.png";
 import chip from "../../assets/chip.png";
 const AddNewATMCard = ({ mm, yy, cardNum, cardName, cvv }) => {
   return (
@@ -11,7 +12,7 @@ const AddNewATMCard = ({ mm, yy, cardNum, cardName, cvv }) => {
             <div className={styles.frontCard_top}>
               <h1>VISA</h1>
               <div className={styles.imgCont}>
-                <img src="" alt="" />
+                <img src={cardlogo} alt="" />
               </div>
             </div>
             <div className={styles.frontCard_mid}>

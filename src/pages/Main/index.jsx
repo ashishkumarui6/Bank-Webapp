@@ -21,6 +21,7 @@ import MobilePayment from "../../components/MobilePayment";
 import UPIPayment from "../../components/UPIPayment";
 import Message from "../../components/Message";
 import check from "../../assets/check.png";
+import crox from "../../assets/crox.png";
 import AddNewPayee from "../../components/AddNewPayee";
 import TransactionModal from "../../components/TransactionModal";
 import TransactionAddMoneyModal from "../../components/TransactionAddMoneyModal";
@@ -44,7 +45,7 @@ const Main = ({ element }) => {
 
   const isModalName = useSelector((state) => state.ui.isModalName);
 
-  if (token) {
+  if (!token) {
     return <Navigate to="/login" />;
   }
 
@@ -77,18 +78,30 @@ const Main = ({ element }) => {
   };
 
   const addNewBtnFn = () => {
-    const config = {
-      url: "https://bank-webapp-default-rtdb.firebaseio.com/cards.json",
-      method: "POST",
-      data: state,
-    };
+    if (
+      state.cardNum === "" ||
+      state.month === "" ||
+      state.year === "" ||
+      state.cvv === "" ||
+      state.cardHolderName === "" ||
+      state.cardType === "" ||
+      state.bankCard === ""
+    ) {
+      return alert("all fieald requerd");
+    } else {
+      const config = {
+        url: "https://bank-webapp-default-rtdb.firebaseio.com/cards.json",
+        method: "POST",
+        data: state,
+      };
 
-    axios(config)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => console.log(err));
-    Dispatch(uiActions.onModalOpen({ name: "addnewcard" }));
+      axios(config)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => console.log(err));
+      Dispatch(uiActions.onModalOpen({ name: "addnewcard" }));
+    }
   };
 
   const onMessageShow = () => {
@@ -102,12 +115,10 @@ const Main = ({ element }) => {
   };
 
   const OnGetpassAction = () => {
-    // console.log(typeof );
-
-    Dispatch(uiActions.onModalOpen({ name: "vivecard" }));
     if (matchPass.pass === checkpass) {
+      Dispatch(uiActions.onModalOpen({ name: "vivecard" }));
     } else {
-      alert("Wrong Password");
+      Dispatch(uiActions.onModalOpen({ name: "wrongpassword" }));
     }
   };
 
@@ -118,6 +129,7 @@ const Main = ({ element }) => {
   const onGetCheack = () => {
     Dispatch(uiActions.onModalOpen({ name: "onSuccess" }));
   };
+
   return (
     <>
       {isModalName && (
@@ -141,6 +153,7 @@ const Main = ({ element }) => {
           <PasswordCardPin onClick={OnGetpassAction} onchange={OnGetDataPass} />
         </PinModal>
       )}
+
       {isModalName === "addnewcard" && (
         <PinModal>
           <Message
@@ -151,6 +164,18 @@ const Main = ({ element }) => {
           />
         </PinModal>
       )}
+
+      {isModalName === "wrongpassword" && (
+        <PinModal>
+          <Message
+            name="Please Enter Your Correct Password"
+            src={crox}
+            onclickFun={onMessageShow}
+            BtnName="close"
+          />
+        </PinModal>
+      )}
+
       {isModalName === "addBtn" && (
         <AllModal>
           <AddNewCard

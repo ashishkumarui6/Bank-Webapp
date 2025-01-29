@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useContext, useReducer } from "react";
 import styles from "./index.module.css";
 import AcTitle from "../../shared/AcTitile";
 import InputField from "../../widgets/InputField";
@@ -6,6 +6,7 @@ import Button from "../../widgets/Button";
 import { useDispatch } from "react-redux";
 import { uiActions } from "../../store/ui";
 import axios from "axios";
+import MyContext from "../../context/MyContext";
 
 const ReducerFun = (state, action) => {
   switch (action.type) {
@@ -15,6 +16,7 @@ const ReducerFun = (state, action) => {
 };
 const AddNewPayee = () => {
   const Dispatch = useDispatch();
+  const ctx = useContext(MyContext);
   const [state, dispatch] = useReducer(ReducerFun, {
     AcNum: "",
     AcNumC: "",
@@ -31,6 +33,7 @@ const AddNewPayee = () => {
     axios(config)
       .then((res) => {
         console.log(res);
+        ctx.getAddPyaee();
       })
       .catch((error) => {
         console.log(error);

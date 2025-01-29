@@ -24,7 +24,7 @@ const Page_1 = ({ onChange }) => {
           />
           <InputField
             onChange={onChange}
-            type="text"
+            type="number"
             id="phone"
             placeholder="Phone Number"
             icon={<FaPhone color="#d70026" size={18} />}

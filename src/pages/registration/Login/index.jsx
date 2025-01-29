@@ -5,11 +5,17 @@ import InputField from "../../../widgets/InputField";
 import Button from "../../../widgets/Button";
 import styles from "./index.module.css";
 import MyContext from "../../../context/MyContext";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { uiActions } from "../../../store/ui";
+import PinModal from "../../../PinModal";
+import Message from "../../../components/Message";
+import crox from "../../../assets/crox.png";
+import { MdOutlineAttachEmail } from "react-icons/md";
+import { TbPasswordFingerprint } from "react-icons/tb";
 
 const Login = () => {
   const Dispatch = useDispatch();
+  const isModalName = useSelector((state) => state.ui.isModalName);
 
   const { copydata } = useContext(MyContext);
   const navigate = useNavigate();
@@ -32,14 +38,47 @@ const Login = () => {
       // const { password, ...rest } = isExistinguser;
       localStorage.setItem("user", JSON.stringify(isExistinguser));
       localStorage.setItem("token", "login");
+
       navigate("/");
     } else {
-      // Dispatch(uiActions.onModalOpen({ name: "alertCredentials" }));
-      alert("Invalid Credentials");
+      setData({
+        email: "",
+        password: "",
+      });
+      Dispatch(uiActions.onModalOpen({ name: "alertCredentials" }));
     }
   };
+
+  console.log(data);
+
+  const OngetClose = () => {
+    Dispatch(uiActions.onModalOpen({ name: "" }));
+  };
+
   return (
     <>
+      {/* {isModalName && (
+        <div
+          onClick={() => Dispatch(uiActions.onModalOpen({ name: "" }))}
+          style={{
+            background: "rgba(0,0,0,.5)",
+            zIndex: 10,
+            height: "100%",
+            width: "100%",
+            position: "fixed",
+          }}
+        ></div>
+      )} */}
+      {isModalName === "alertCredentials" && (
+        <PinModal>
+          <Message
+            name="Given credentials Is Incorrect!"
+            src={crox}
+            onclickFun={OngetClose}
+            BtnName="close"
+          />
+        </PinModal>
+      )}
       <div className={styles.loginForm}>
         <div className={styles.loginContainer}>
           <div className={styles.namePhone}>
@@ -52,17 +91,25 @@ const Login = () => {
                 onChange={onGetData}
                 placeholder="Email"
                 id="email"
+                value={data.email}
+                icon={<MdOutlineAttachEmail color="#000" size={18} />}
               />
               <InputField
                 type="text"
                 onChange={onGetData}
                 placeholder="Password"
                 id="password"
+                value={data.password}
+                icon={<TbPasswordFingerprint color="#000" size={18} />}
               />
             </div>
           </div>
           <div className={styles.button}>
-            <Button onclick={onLogin} name="Sign In" />
+            <Button
+              disabled={data.email.length == 0 || data.password.length !== 6}
+              onclick={onLogin}
+              name="Sign In"
+            />
           </div>
           <p
             onClick={() =>

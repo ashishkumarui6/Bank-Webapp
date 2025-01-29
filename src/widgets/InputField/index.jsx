@@ -10,6 +10,7 @@ const InputField = ({
   disabled,
   onChange,
   icon,
+  value,
 }) => {
   return (
     <div className={styles.InputField}>
@@ -21,6 +22,7 @@ const InputField = ({
         disabled={disabled}
         onChange={onChange}
         id={id}
+        value={value}
       />
       {icon}
     </div>

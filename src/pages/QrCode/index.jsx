@@ -1,20 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./index.module.css";
 import Button from "../../widgets/Button";
+import MyContext from "../../context/MyContext";
 
 const QrCode = () => {
+  const { copydata } = useContext(MyContext);
   return (
     <>
       <div className={styles.qrCode_top}>
         <div className={styles.qrCode_left}>
-          <h1>ashish</h1>
+          <h1>{copydata[0]?.name}</h1>
           <div className={styles.AcNo}>
             <p>Acc No:</p>
-            <p>202357222118</p>
+            <p> {copydata[0]?.accDetails.accNumber}</p>
           </div>
           <div className={styles.AcIfccNo}>
             <p>IFSC:</p>
-            <p>AMBK1234567</p>
+            <p> {copydata[0]?.accDetails.ifsc}</p>
           </div>
         </div>
         <div className={styles.qrCode_right}>

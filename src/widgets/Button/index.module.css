@@ -17,3 +17,7 @@
     background: #fbfcfd;
     color: #d70026;
 }
+
+:disabled{
+    opacity: .5;
+}

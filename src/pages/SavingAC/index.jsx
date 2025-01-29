@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "./index.module.css";
 import axios from "axios";
 import { data, Link } from "react-router-dom";
@@ -7,37 +7,14 @@ import { uiActions } from "../../store/ui";
 import { IoMdEyeOff } from "react-icons/io";
 import { IoEye } from "react-icons/io5";
 import chip from "../../assets/chip.png";
+import MyContext from "../../context/MyContext";
 
 const SavingAC = () => {
   const dispatch = useDispatch();
   const [user, setUser] = useState([]);
   const [show, setShow] = useState(true);
   const isModalName = useSelector((state) => state.ui.isModalName);
-
-  const getUserCopy = () => {
-    axios
-      .get("https://bank-app-652c0-default-rtdb.firebaseio.com/users.json")
-      .then((res) => {
-        const newAddData = [];
-
-        for (const id in res.data) {
-          newAddData.push({ ...res.data[id], dId: id });
-        }
-        setUser(newAddData);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
-  useEffect(() => {
-    getUserCopy();
-  }, []);
-
-  // console.log(isModalName);
-  console.log(user);
-
-  // const { name, email } = user;
+  const { copydata } = useContext(MyContext);
 
   const OnGetShow = () => {
     setShow(!show);
@@ -51,7 +28,7 @@ const SavingAC = () => {
           </div>
           <div>
             <p>Welcome back</p>
-            <p>{user[0]?.name}</p>
+            <p>{copydata[0]?.name}</p>
           </div>
         </div>
         <div className={styles.SavingAC_body}>
@@ -93,7 +70,7 @@ const SavingAC = () => {
                         color: "#000",
                       }}
                     >
-                      ₹ 10
+                      ₹ {copydata[0]?.balance}
                     </p>
                   )}
                 </div>
@@ -117,7 +94,7 @@ const SavingAC = () => {
           >
             <div className={styles.Card_card_moon}></div>
             <div className={styles.Card_card_top}>
-              <h1>Ashish</h1>
+              <h1>{copydata[0]?.name}</h1>
             </div>
             <div className={styles.Card_card_mid}>
               <div className={styles.Card_card_mid_chip}>

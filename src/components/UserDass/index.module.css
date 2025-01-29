@@ -9,6 +9,7 @@
     top: 70px;
     width: 300px;
     z-index: 100000000000000000;
+    animation:Rightleft 0.5s ease forwards;
 }
 
 
@@ -70,4 +71,14 @@
 .botItems img{
     height: 30px;
     width: 30px;
+}
+
+@keyframes Rightleft {
+    
+    0%{
+        transform: translateX(200px);
+    }
+    100%{
+        transform: translateX(0); 
+    }
 }

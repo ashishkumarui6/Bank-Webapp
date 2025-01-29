@@ -10,6 +10,16 @@
     right: 10px;
     top: 70px;
     width: 300px;
-    z-index: 100000000000000000;
-    /* display: none; */
+    z-index: 100000;
+    animation:Rightleft 0.5s ease forwards;
+}
+
+@keyframes Rightleft {
+    
+    0%{
+        transform: translatey(-200px);
+    }
+    100%{
+        transform: translatey(0); 
+    }
 }
