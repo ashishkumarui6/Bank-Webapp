@@ -31,10 +31,10 @@ const Notification = () => {
         <li className={styles.notification_ul_top}>
           <p className={styles.notification_ul_top_para}>Notification</p>
         </li>
-        {noti.map((it) => {
+        {noti.map((it, ind) => {
           return (
             <li>
-              <div>
+              <div key={ind}>
                 <div className={styles.notification_item}>
                   <div className={styles.notification_left}>{it.icon}</div>
                   <div className={styles.notification_right}>

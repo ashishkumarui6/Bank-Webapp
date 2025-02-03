@@ -2,9 +2,7 @@ import React from "react";
 import Title from "../../../shared/Title/intex";
 import Desciptions from "../../../shared/Descriptins";
 import InputField from "../../../widgets/InputField";
-import Button from "../../../widgets/Button";
 import styles from "./index.module.css";
-import { Link } from "react-router-dom";
 import { MdEmail } from "react-icons/md";
 import { BsBriefcaseFill } from "react-icons/bs";
 

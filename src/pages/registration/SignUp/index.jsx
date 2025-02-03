@@ -45,8 +45,6 @@ const SignUp = () => {
   const [profile, setProfile] = useState("");
 
   const onSelectPayMethod = (name) => {
-    console.log(name);
-
     dispatch({ type: "PAYMETHOD", payload: { paymethod: name } });
   };
 
@@ -69,7 +67,7 @@ const SignUp = () => {
     ],
     cardDetails: {
       number: "2363" + Math.floor(Math.random() * 999999999999),
-      expiry: Math.floor(Math.random() * 9999),
+      expiry: Math.floor(Math.random() * 999),
       cvv: Math.floor(Math.random() * 999),
       type: "Rupay",
     },
@@ -89,7 +87,7 @@ const SignUp = () => {
       if (state.name === "" || state.name.trim().length < 3) {
         toast.error("please enter a valid name and length greater than 3");
       } else if (state.phone.length !== 10) {
-        toast.error("Please enter a valid number");
+        toast.error("Please enter a valid number (10 digits)");
       } else {
         setStep1(false);
         setStep2(true);
@@ -97,7 +95,7 @@ const SignUp = () => {
     } else if (s === "2") {
       if (state.email === "") {
         toast.error("Please Enter  Email");
-      } else if (state.email.includes("@") && !state.email.includes(".")) {
+      } else if (!state.email.includes("@") || !state.email.includes(".")) {
         toast.error("Please Enter Valid Email");
       } else if (state.work === "" || state.work.trim().length < 4) {
         toast.error("Please Enter Valid work");
@@ -116,7 +114,7 @@ const SignUp = () => {
       if (state.pass === "" || state.pass.trim().length < 6) {
         toast.error("please enter a 6 digits");
       } else if (state.pass === "" || state.cpass.trim().length < 6) {
-        toast.error("please enter a canfirm password");
+        toast.error("please enter a confirm password");
       } else {
         if (state.pass === state.cpass) {
           setStep4(false);
@@ -165,8 +163,6 @@ const SignUp = () => {
     setProfile(e.target.value);
   };
 
-  // console.log(state);
-
   const step =
     (step1 && "1") ||
     (step2 && "2") ||
@@ -184,7 +180,7 @@ const SignUp = () => {
       {isModalName && (
         <div
           style={{
-            background: "#fff",
+            background: "rgba(0,0,0,.5)",
             zIndex: 100,
             height: "100%",
             width: "100%",

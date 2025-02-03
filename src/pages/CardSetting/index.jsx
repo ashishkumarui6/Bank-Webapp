@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./index.module.css";
 import chip from "../../assets/chip.png";
 import { IoIosArrowForward } from "react-icons/io";
@@ -10,8 +10,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { uiActions } from "../../store/ui";
 const CardSetting = () => {
   const Disptch = useDispatch();
+  const [user, setUser] = useState([]);
 
   const isModalName = useSelector((state) => state.ui.isModalName);
+  useEffect(() => {
+    const uData = JSON.parse(localStorage.getItem("user") || []);
+
+    if (uData) {
+      setUser(uData);
+    }
+  }, []);
 
   return (
     <div className={styles.CardSetting}>
@@ -20,7 +28,7 @@ const CardSetting = () => {
           <div className={styles.card}>
             <div className={styles.card_top}></div>
             <div className={styles.card_mid_1}>
-              <h1>ashish</h1>
+              <h1>{user?.name}</h1>
             </div>
             <div className={styles.card_mid_2}>
               <div className={styles.card_mid_2_chip}>
@@ -28,11 +36,19 @@ const CardSetting = () => {
               </div>
               <p className={styles.card_mid_2_chip_p}>
                 Valid:
-                <span className={styles.card_mid_2_chip_span}>../29</span>
+                <span className={styles.card_mid_2_chip_span}>
+                  ●●/
+                  {user?.cardDetails?.expiry}
+                </span>
               </p>
             </div>
             <div className={styles.card_bottom}>
-              <p>●●●● ●●●● ●●●● 0055</p>
+              <p>
+                {`●●●● ●●●● ●●●● ${user?.cardDetails?.number.substring(
+                  12,
+                  16
+                )}`}
+              </p>
             </div>
           </div>
         </div>

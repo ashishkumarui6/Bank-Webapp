@@ -8,15 +8,18 @@ import { uiActions } from "../../store/ui";
 import axios from "axios";
 import MyContext from "../../context/MyContext";
 
-const ReducerFun = (state, action) => {
-  switch (action.type) {
-    case "DATA":
-      return { ...state, ...action.payload };
-  }
-};
 const AddNewPayee = () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+
   const Dispatch = useDispatch();
   const ctx = useContext(MyContext);
+
+  const ReducerFun = (state, action) => {
+    switch (action.type) {
+      case "DATA":
+        return { ...state, ...action.payload };
+    }
+  };
   const [state, dispatch] = useReducer(ReducerFun, {
     AcNum: "",
     AcNumC: "",
@@ -28,8 +31,11 @@ const AddNewPayee = () => {
     const config = {
       url: "https://bank-webapp-default-rtdb.firebaseio.com/addpyee.json",
       method: "POST",
-      data: state,
+      data: { ...state, userId: user.dId },
     };
+
+    console.log(state);
+
     axios(config)
       .then((res) => {
         console.log(res);

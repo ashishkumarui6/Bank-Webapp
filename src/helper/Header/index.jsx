@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./index.module.css";
 import logo from "../../assets/logo.jpg";
 import { IoIosMenu } from "react-icons/io";
 import { AiFillQuestionCircle } from "react-icons/ai";
 import { BsFillBellFill } from "react-icons/bs";
-import profile from "../../assets/ashish-me.jpg";
 import { useDispatch } from "react-redux";
 import { uiActions } from "../../store/ui";
 
@@ -44,7 +43,7 @@ const Header = ({ toggle }) => {
           >
             <div className={styles.profile_img}>
               <div className={styles.imageUrl}>
-                <img src={profile} alt="profile" />
+                <img src="" alt="profile" />
               </div>
             </div>
           </div>

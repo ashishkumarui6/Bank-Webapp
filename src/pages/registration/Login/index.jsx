@@ -27,7 +27,6 @@ const Login = () => {
   const onGetData = (e) => {
     setData({ ...data, [e.target.id]: e.target.value });
   };
-  // console.log(copydata);
 
   const onLogin = () => {
     const isExistinguser = copydata.find(
@@ -57,18 +56,6 @@ const Login = () => {
 
   return (
     <>
-      {/* {isModalName && (
-        <div
-          onClick={() => Dispatch(uiActions.onModalOpen({ name: "" }))}
-          style={{
-            background: "rgba(0,0,0,.5)",
-            zIndex: 10,
-            height: "100%",
-            width: "100%",
-            position: "fixed",
-          }}
-        ></div>
-      )} */}
       {isModalName === "alertCredentials" && (
         <PinModal>
           <Message

@@ -1,7 +1,4 @@
 import React, { useState } from "react";
-import Title from "../../../shared/Title/intex";
-import Desciptions from "../../../shared/Descriptins";
-import InputField from "../../../widgets/InputField";
 import styles from "./index.module.css";
 import { appbox } from "../../../data/Appbox";
 import AppIcon from "../../../widgets/AppIcon";

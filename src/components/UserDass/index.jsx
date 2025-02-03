@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./index.module.css";
-import profile from "../../assets/men.jpg";
 import myProfile from "../../assets/user-dass/userdass.svg";
 import setting from "../../assets/user-dass/setting.svg";
 import logout from "../../assets/user-dass/logout.svg";
@@ -27,8 +26,8 @@ const userDass = [
   },
 ];
 const UserDass = () => {
-  // const logoutRemove = JSON.parse(localStorage.getItem("user"));
   const navigate = useNavigate();
+  const [user, setUser] = useState([]);
 
   const onGetLogout = (name) => {
     if (name === "Logout") {
@@ -39,23 +38,31 @@ const UserDass = () => {
       alert("Page Not Found");
     }
   };
+
+  useEffect(() => {
+    const uData = JSON.parse(localStorage.getItem("user") || []);
+
+    if (uData) {
+      setUser(uData);
+    }
+  }, []);
   return (
     <div className={styles.userDass}>
       <div className={styles.userDass_top}>
         <div className={styles.profile}>
           <div className={styles.profile_img}>
-            <img src={profile} alt="title" />
+            <img src="" alt="title" />
           </div>
           <div>
-            <p className={styles.profile_email}>ashish</p>
-            <p className={styles.profile_name}>ashish@gmail.com </p>
+            <p className={styles.profile_email}>{user?.name}</p>
+            <p className={styles.profile_name}>{user?.email}</p>
           </div>
         </div>
       </div>
       <div className={styles.userDass_bot}>
-        {userDass.map((it) => {
+        {userDass.map((it, ind) => {
           return (
-            <div key={it.id} className={styles.botItems}>
+            <div key={ind} className={styles.botItems}>
               <img src={it.icon} alt={it.title} />
               <p onClick={() => onGetLogout(it.name)}>{it.name}</p>
             </div>

@@ -10,7 +10,7 @@ import Pay from "./pages/Pay";
 import AddMoney from "./pages/AddMoney";
 import ACdetails from "./pages/ACdetails";
 import CardSetting from "./pages/CardSetting";
-import CurrencyConverter from "./pages/CurrencyConverter";
+const CurrencyConverter = lazy(() => import("./pages/CurrencyConverter"));
 const History = lazy(() => import("./pages/History"));
 const MyState = lazy(() => import("./context/myState"));
 import { ToastContainer } from "react-toastify";

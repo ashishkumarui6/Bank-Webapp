@@ -1,24 +1,30 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./index.module.css";
-import axios from "axios";
-import { data, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { uiActions } from "../../store/ui";
 import { IoMdEyeOff } from "react-icons/io";
 import { IoEye } from "react-icons/io5";
 import chip from "../../assets/chip.png";
-import MyContext from "../../context/MyContext";
 
 const SavingAC = () => {
   const dispatch = useDispatch();
-  const [user, setUser] = useState([]);
   const [show, setShow] = useState(true);
+  const [user, setUser] = useState([]);
   const isModalName = useSelector((state) => state.ui.isModalName);
-  const { copydata } = useContext(MyContext);
 
   const OnGetShow = () => {
     setShow(!show);
   };
+
+  useEffect(() => {
+    const uData = JSON.parse(localStorage.getItem("user") || []);
+
+    if (uData) {
+      setUser(uData);
+    }
+  }, []);
+
   return (
     <>
       <div>
@@ -28,7 +34,7 @@ const SavingAC = () => {
           </div>
           <div>
             <p>Welcome back</p>
-            <p>{copydata[0]?.name}</p>
+            <p>{user?.name}</p>
           </div>
         </div>
         <div className={styles.SavingAC_body}>
@@ -70,7 +76,7 @@ const SavingAC = () => {
                         color: "#000",
                       }}
                     >
-                      ₹ {copydata[0]?.balance}
+                      ₹ {user?.balance}
                     </p>
                   )}
                 </div>
@@ -94,18 +100,23 @@ const SavingAC = () => {
           >
             <div className={styles.Card_card_moon}></div>
             <div className={styles.Card_card_top}>
-              <h1>{copydata[0]?.name}</h1>
+              <h1>{user?.name}</h1>
             </div>
             <div className={styles.Card_card_mid}>
               <div className={styles.Card_card_mid_chip}>
                 <img src={chip} alt="img" />
               </div>
               <p className={styles.Card_card_mid_p}>
-                Valid: <span>../29</span>
+                Valid: <span>●●/{user?.cardDetails?.expiry}</span>
               </p>
             </div>
             <div className={styles.Card_card_bot}>
-              <p>●●●● ●●●● ●●●● 5555</p>
+              <p>
+                {`●●●● ●●●● ●●●● ${user?.cardDetails?.number.substring(
+                  12,
+                  16
+                )}`}
+              </p>
             </div>
           </div>
           <div className={styles.Addcard_addcard}>

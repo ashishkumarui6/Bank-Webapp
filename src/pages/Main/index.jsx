@@ -26,6 +26,7 @@ import AddNewPayee from "../../components/AddNewPayee";
 import TransactionModal from "../../components/TransactionModal";
 import TransactionAddMoneyModal from "../../components/TransactionAddMoneyModal";
 import ChangesCard from "../../components/ChangesCard";
+import { toast } from "react-toastify";
 
 const ReducerFun = (state, action) => {
   switch (action.type) {
@@ -40,8 +41,6 @@ const Main = ({ element }) => {
   const Dispatch = useDispatch();
   const token = localStorage.getItem("token");
   const matchPass = JSON.parse(localStorage.getItem("user"));
-
-  console.log(matchPass);
 
   const isModalName = useSelector((state) => state.ui.isModalName);
 
@@ -78,6 +77,15 @@ const Main = ({ element }) => {
   };
 
   const addNewBtnFn = () => {
+    // console.log(
+    //   state.cardNum,
+    //   state.month,
+    //   state.year,
+    //   state.cvv,
+    //   state.cardHolderName,
+    //   state.cardType,
+    //   state.bankCard
+    // );
     if (
       state.cardNum === "" ||
       state.month === "" ||
@@ -87,7 +95,7 @@ const Main = ({ element }) => {
       state.cardType === "" ||
       state.bankCard === ""
     ) {
-      return alert("all fieald requerd");
+      alert("full fill field");
     } else {
       const config = {
         url: "https://bank-webapp-default-rtdb.firebaseio.com/cards.json",
@@ -97,6 +105,18 @@ const Main = ({ element }) => {
 
       axios(config)
         .then((res) => {
+          dispatch({
+            type: "ADDNEWDATA",
+            payload: {
+              cardNum: "",
+              month: "",
+              year: "",
+              cvv: "",
+              cardHolderName: "",
+              cardType: "",
+              bankCard: "",
+            },
+          });
           console.log(res);
         })
         .catch((err) => console.log(err));
@@ -179,6 +199,7 @@ const Main = ({ element }) => {
       {isModalName === "addBtn" && (
         <AllModal>
           <AddNewCard
+            state={state}
             onGetAddNewDATA={onGetAddNewDATA}
             onclickFn={addNewBtnFn}
           />

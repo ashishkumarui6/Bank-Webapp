@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "./index.module.css";
 import icon from "../../assets/icon.svg";
 import ImgIcon from "../../assets/ImgIcon.svg";
@@ -13,7 +13,9 @@ import MyContext from "../../context/MyContext";
 
 const Pay = () => {
   const Dispatch = useDispatch();
-  const { addpayee } = useContext(MyContext);
+  const user = JSON.parse(localStorage.getItem("user"));
+  const [addpayee, setAddpayee] = useState([]);
+  const { getAddPyaee } = useContext(MyContext);
   const OnGetBtnName = (name) => {
     Dispatch(uiActions.onModalOpen({ name: name }));
   };
@@ -21,6 +23,17 @@ const Pay = () => {
   const isModalName = useSelector((state) => state.ui.isModalName);
 
   console.log(addpayee);
+  const getPayeeData = async () => {
+    const data = await getAddPyaee(
+      "https://bank-webapp-default-rtdb.firebaseio.com/addpyee.json",
+      user.dId
+    );
+
+    setAddpayee(data);
+  };
+  useEffect(() => {
+    getPayeeData();
+  }, []);
 
   return (
     <>
@@ -59,14 +72,14 @@ const Pay = () => {
               <div className={styles.Recents_add_p}>Add New Payee</div>
             </div>
           </div>
-          {addpayee.map((it, index) => {
+          {addpayee.map((it, ind) => {
             return (
               <>
                 <div
+                  key={ind}
                   onClick={() =>
                     Dispatch(uiActions.onModalOpen({ name: "onOpenModal" }))
                   }
-                  key={it.dId}
                   className={styles.add_payee}
                 >
                   <div className={styles.payee_img}>
@@ -82,15 +95,19 @@ const Pay = () => {
       <div>
         <div className={styles.title_titles}>Transfer Money</div>
         <div className={styles.transferMoney}>
-          {transferIcons.map((it) => {
+          {transferIcons.map((it, ind) => {
             return (
-              <TransferIcons
-                onClick={OnGetBtnName}
-                key={it.id}
-                name={it.name}
-                icon={it.icon}
-                title={it.title}
-              />
+              <>
+                <div key={ind}>
+                  <TransferIcons
+                    onClick={OnGetBtnName}
+                    key={it.id}
+                    name={it.name}
+                    icon={it.icon}
+                    title={it.title}
+                  />
+                </div>
+              </>
             );
           })}
         </div>

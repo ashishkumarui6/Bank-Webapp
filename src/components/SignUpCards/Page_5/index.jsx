@@ -1,10 +1,7 @@
 import React from "react";
 import Title from "../../../shared/Title/intex";
 import Desciptions from "../../../shared/Descriptins";
-import InputField from "../../../widgets/InputField";
-import Button from "../../../widgets/Button";
 import styles from "./index.module.css";
-import { Link } from "react-router-dom";
 
 const Page_5 = ({ onChange, profile }) => {
   return (

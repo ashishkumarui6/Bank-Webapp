@@ -1,22 +1,28 @@
-import React, { useContext } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./index.module.css";
 import Button from "../../widgets/Button";
-import MyContext from "../../context/MyContext";
 
 const QrCode = () => {
-  const { copydata } = useContext(MyContext);
+  const [user, setUser] = useState([]);
+  useEffect(() => {
+    const uData = JSON.parse(localStorage.getItem("user") || []);
+
+    if (uData) {
+      setUser(uData);
+    }
+  }, []);
   return (
     <>
       <div className={styles.qrCode_top}>
         <div className={styles.qrCode_left}>
-          <h1>{copydata[0]?.name}</h1>
+          <h1>{user?.name}</h1>
           <div className={styles.AcNo}>
             <p>Acc No:</p>
-            <p> {copydata[0]?.accDetails.accNumber}</p>
+            <p> {user?.accDetails?.accNumber}</p>
           </div>
           <div className={styles.AcIfccNo}>
             <p>IFSC:</p>
-            <p> {copydata[0]?.accDetails.ifsc}</p>
+            <p> {user?.accDetails?.ifsc}</p>
           </div>
         </div>
         <div className={styles.qrCode_right}>
