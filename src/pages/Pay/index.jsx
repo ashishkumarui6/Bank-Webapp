@@ -8,7 +8,6 @@ import { transferIcons } from "../../data/TransferIcons";
 import { useDispatch, useSelector } from "react-redux";
 import { uiActions } from "../../store/ui";
 import Addpayee from "../../assets/adminlogo.svg";
-import axios from "axios";
 import MyContext from "../../context/MyContext";
 
 const Pay = () => {
@@ -22,7 +21,6 @@ const Pay = () => {
 
   const isModalName = useSelector((state) => state.ui.isModalName);
 
-  console.log(addpayee);
   const getPayeeData = async () => {
     const data = await getAddPyaee(
       "https://bank-webapp-default-rtdb.firebaseio.com/addpyee.json",
@@ -33,7 +31,7 @@ const Pay = () => {
   };
   useEffect(() => {
     getPayeeData();
-  }, []);
+  }, [getPayeeData]);
 
   return (
     <>
@@ -72,7 +70,7 @@ const Pay = () => {
               <div className={styles.Recents_add_p}>Add New Payee</div>
             </div>
           </div>
-          {addpayee.map((it, ind) => {
+          {addpayee?.map((it, ind) => {
             return (
               <>
                 <div
@@ -85,7 +83,7 @@ const Pay = () => {
                   <div className={styles.payee_img}>
                     <img src={Addpayee} alt="imgAdd" />
                   </div>
-                  <p>{it.AcName}</p>
+                  <p>{it?.AcName}</p>
                 </div>
               </>
             );

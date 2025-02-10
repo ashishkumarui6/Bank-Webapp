@@ -41,6 +41,7 @@ const Main = ({ element }) => {
   const Dispatch = useDispatch();
   const token = localStorage.getItem("token");
   const matchPass = JSON.parse(localStorage.getItem("user"));
+  const user = JSON.parse(localStorage.getItem("user"));
 
   const isModalName = useSelector((state) => state.ui.isModalName);
 
@@ -100,7 +101,7 @@ const Main = ({ element }) => {
       const config = {
         url: "https://bank-webapp-default-rtdb.firebaseio.com/cards.json",
         method: "POST",
-        data: state,
+        data: { ...state, userId: user.dId },
       };
 
       axios(config)

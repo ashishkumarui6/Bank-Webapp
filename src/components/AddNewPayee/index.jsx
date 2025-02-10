@@ -34,7 +34,7 @@ const AddNewPayee = () => {
       data: { ...state, userId: user.dId },
     };
 
-    console.log(state);
+    // console.log(state);
 
     axios(config)
       .then((res) => {

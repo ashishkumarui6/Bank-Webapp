@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./index.module.css";
 import profile from "../../assets/men.jpg";
 import { FaArrowRight } from "react-icons/fa";
 
 const PasswordCardPin = ({ onchange, onClick }) => {
+  const [user, setUser] = useState([]);
+
+  useEffect(() => {
+    const uData = JSON.parse(localStorage.getItem("user") || []);
+
+    if (uData) {
+      setUser(uData);
+    }
+  }, []);
   return (
     <>
       <div>
@@ -14,7 +23,7 @@ const PasswordCardPin = ({ onchange, onClick }) => {
       <div className={styles.password_text}>
         <p>
           Hello,
-          <span>Ashish</span>
+          <span>{user?.name}</span>
         </p>
         <p>Please Enter Your Password</p>
       </div>

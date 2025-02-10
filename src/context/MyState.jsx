@@ -5,7 +5,6 @@ import axios from "axios";
 const MyState = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [copydata, setCopyData] = useState([]);
-  const [addCard, setAddCard] = useState([]);
   const [addpayee, setAddPayee] = useState([]);
   const [userData, setUserData] = useState([]);
 
@@ -28,24 +27,6 @@ const MyState = ({ children }) => {
           newAddData.push({ ...res.data[id], dId: id });
         }
         setCopyData(newAddData);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
-  const getaddCard = () => {
-    setLoading(true);
-    axios
-      .get("https://bank-webapp-default-rtdb.firebaseio.com/cards.json")
-      .then((res) => {
-        const newAddcard = [];
-        for (const id in res.data) {
-          newAddcard.push({ ...res.data[id], dId: id });
-        }
-
-        setAddCard(newAddcard);
         setLoading(false);
       })
       .catch((error) => {
@@ -95,9 +76,27 @@ const MyState = ({ children }) => {
       });
   };
 
+  const getAddCard = (url, uId) => {
+    return axios
+      .get(url)
+      .then((res) => {
+        const newaddCard = [];
+
+        for (const id in res.data) {
+          newaddCard.push({ ...res.data[id], dId: id });
+        }
+
+        const filteredData = newaddCard.filter((it) => it.userId === uId);
+
+        return filteredData;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   useEffect(() => {
     getCopyData();
-    getaddCard();
   }, []);
 
   return (
@@ -106,9 +105,9 @@ const MyState = ({ children }) => {
         loading,
         setLoading,
         copydata,
-        addCard,
         addpayee,
         getAddPyaee,
+        getAddCard,
         userData,
       }}
     >
