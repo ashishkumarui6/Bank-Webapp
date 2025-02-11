@@ -12,9 +12,9 @@ import ACdetails from "./pages/ACdetails";
 import CardSetting from "./pages/CardSetting";
 const CurrencyConverter = lazy(() => import("./pages/CurrencyConverter"));
 const History = lazy(() => import("./pages/History"));
-const MyState = lazy(() => import("./context/myState"));
 import { ToastContainer } from "react-toastify";
 import Loader from "./components/Loader";
+import MyState from "./context/MyState";
 const App = () => {
   return (
     <>
