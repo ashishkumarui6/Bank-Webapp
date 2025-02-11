@@ -200,8 +200,8 @@ const SignUp = () => {
       )}
       <div className={styles.form}>
         <div className={styles.container}>
-          {step1 && <Page_1 onChange={onGetData} />}
-          {step2 && <Page_2 onChange={onGetData} />}
+          {step1 && <Page_1 onChange={onGetData} state={state} />}
+          {step2 && <Page_2 onChange={onGetData} state={state} />}
           {step3 && <Page_3 gender={state.gender} onGetGender={onGetGender} />}
           {step4 && <Page_4 onChange={onGetData} />}
           {step5 && <Page_5 profile={profile} onChange={onGetProfile} />}

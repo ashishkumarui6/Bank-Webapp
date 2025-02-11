@@ -3,13 +3,6 @@ import styles from "./index.module.css";
 import InputField from "../../widgets/InputField";
 import Button from "../../widgets/Button";
 const AddNewCard = ({ onGetAddNewDATA, onclickFn, disabled, state }) => {
-  //   state.cardNum,
-  //   state.month,
-  //   state.year,
-  //   state.cvv,
-  //   state.cardHolderName,
-  //   state.cardType,
-  //   state.bankCard
   return (
     <div className={styles.Modal_content}>
       <div className={styles.content_card}></div>

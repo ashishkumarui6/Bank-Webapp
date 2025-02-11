@@ -51,3 +51,50 @@
     color: var(--primary-color);
 }
 
+
+@media screen and (min-width: 1024px) and (max-width: 1200px){
+    
+  
+}
+
+
+@media screen and (min-width: 769px) and (max-width: 1024px){
+        
+    .loginForm{
+        padding: 0 3rem;
+    }
+    .loginContainer{
+        width: 100%;
+    }
+  
+}
+
+
+
+@media screen and (min-width: 480px) and (max-width: 769px){
+    
+    .loginForm{
+        padding: 0 2rem;
+    }
+    .loginContainer{
+        width: 100%;
+    }
+
+
+
+}
+
+
+
+@media screen and (min-width: 0px) and (max-width: 480px){
+
+    .loginForm{
+        padding: 0 1rem;
+    }
+    .loginContainer{
+        width: 100%;
+    }
+
+
+}
+

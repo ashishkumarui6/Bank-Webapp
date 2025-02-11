@@ -29,3 +29,50 @@
     margin-left: 8px;
     color: var(--primary-color);
 }
+
+
+@media screen and (min-width: 1024px) and (max-width: 1200px){
+    
+  
+}
+
+
+@media screen and (min-width: 769px) and (max-width: 1024px){
+        
+    .form{
+        padding: 0 3rem;
+    }
+    .container{
+        width: 100%;
+    }
+  
+}
+
+
+
+@media screen and (min-width: 480px) and (max-width: 769px){
+    
+    .form{
+        padding: 0 2rem;
+    }
+    .container{
+        width: 100%;
+    }
+
+
+
+}
+
+
+
+@media screen and (min-width: 0px) and (max-width: 480px){
+
+    .form{
+        padding: 0 1rem;
+    }
+    .container{
+        width: 100%;
+    }
+
+
+}

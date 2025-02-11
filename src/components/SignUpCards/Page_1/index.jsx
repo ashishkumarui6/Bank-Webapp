@@ -6,7 +6,7 @@ import styles from "./index.module.css";
 import { FaUser } from "react-icons/fa";
 import { FaPhone } from "react-icons/fa";
 
-const Page_1 = ({ onChange }) => {
+const Page_1 = ({ onChange, state }) => {
   return (
     <>
       <div className={styles.namePhone}>
@@ -21,9 +21,11 @@ const Page_1 = ({ onChange }) => {
             type="text"
             placeholder="Full Name"
             icon={<FaUser color="#d70026" size={18} />}
+            value={state.name}
           />
           <InputField
             onChange={onChange}
+            value={state.phone}
             type="number"
             id="phone"
             placeholder="Phone Number"

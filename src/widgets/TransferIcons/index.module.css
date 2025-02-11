@@ -10,7 +10,7 @@
     font-size: 14px;
     height: 50px;
     padding: 10px;
-    width: 100%;
+    width: 260px;
 }
 
 
@@ -30,4 +30,44 @@
     text-transform: uppercase;
     transition: all .3s ease-out;
     color: #000;
+}
+
+
+
+
+
+
+@media screen and (min-width: 1024px) and (max-width: 1200px){
+    
+  
+}
+
+
+@media screen and (min-width: 769px) and (max-width: 1024px){
+    .TransferIcon{
+        width: 300px;
+    }
+        
+  
+}
+
+
+
+@media screen and (min-width: 480px) and (max-width: 769px){
+    .TransferIcon{
+        width: 300px;
+    }
+
+
+
+}
+
+
+
+@media screen and (min-width: 0px) and (max-width: 480px){
+    .TransferIcon{
+        width: 300px;
+    }
+
+    
 }

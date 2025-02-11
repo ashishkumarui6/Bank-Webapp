@@ -3,3 +3,48 @@
     padding: 20px 50px;
     margin-bottom: 100px;
 }
+
+
+
+@media screen and (min-width: 1024px) and (max-width: 1200px){
+    .Root_root{
+        width: 100%;
+        padding: 20px 50px;
+        margin-bottom: 100px;
+    }
+    
+  
+}
+
+
+@media screen and (min-width: 769px) and (max-width: 1024px){
+    .Root_root{
+        width: 100%;
+        padding: 20px 50px;
+        margin-bottom: 100px;
+    }
+        
+  
+}
+
+
+
+@media screen and (min-width: 480px) and (max-width: 769px){
+    .Root_root{
+        width: 100%;
+        padding: 20px 50px;
+        margin-bottom: 100px;
+    }
+}
+
+
+
+@media screen and (min-width: 0px) and (max-width: 480px){
+    .Root_root{
+        width: 100%;
+        padding: 20px;
+        margin-bottom: 100px;
+    }
+
+
+}

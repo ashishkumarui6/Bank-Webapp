@@ -81,3 +81,66 @@
     column-gap: 20px;
     display: flex;
 }
+
+
+
+
+@media screen and (min-width: 1024px) and (max-width: 1200px){
+    
+  
+}
+
+
+@media screen and (min-width: 769px) and (max-width: 1024px){
+        
+  
+}
+
+
+
+@media screen and (min-width: 480px) and (max-width: 769px){
+    
+    .form{
+        padding: 0 2rem;
+    }
+    .container{
+        width: 100%;
+    }
+
+
+
+}
+
+
+
+@media screen and (min-width: 0px) and (max-width: 480px){
+    .qrCode_left h1{
+        font-size: 26px;
+        font-weight: 500;
+        color: #000;
+    }
+
+
+    .AcNo p:first-child{
+        color: #9e9e9e;
+        font-size: 16px;
+        width: 70px;
+    }
+    
+    
+    .AcNo p:last-child{
+        background-color: #fff;
+        border-radius: 5px;
+        color: #d70026;
+        font-size: 16px;
+        padding: 2px 5px;
+    }
+    
+
+    .qrCode_btn{
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+    }
+    
+}

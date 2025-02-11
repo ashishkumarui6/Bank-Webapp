@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Question from "../../components/Question";
 import UserDass from "../../components/UserDass";
 import Notification from "../../components/Notification";
-import reducer, { uiActions } from "../../store/ui";
+import { uiActions } from "../../store/ui";
 import AllModal from "../../AllModal";
 import AddNewCard from "../../components/AddNewCard";
 import ManagePay from "../../components/ManagePay";
@@ -78,15 +78,6 @@ const Main = ({ element }) => {
   };
 
   const addNewBtnFn = () => {
-    // console.log(
-    //   state.cardNum,
-    //   state.month,
-    //   state.year,
-    //   state.cvv,
-    //   state.cardHolderName,
-    //   state.cardType,
-    //   state.bankCard
-    // );
     if (
       state.cardNum === "" ||
       state.month === "" ||
@@ -96,14 +87,13 @@ const Main = ({ element }) => {
       state.cardType === "" ||
       state.bankCard === ""
     ) {
-      alert("full fill field");
+      toast.error("full fill field");
     } else {
       const config = {
         url: "https://bank-webapp-default-rtdb.firebaseio.com/cards.json",
         method: "POST",
         data: { ...state, userId: user.dId },
       };
-
       axios(config)
         .then((res) => {
           dispatch({

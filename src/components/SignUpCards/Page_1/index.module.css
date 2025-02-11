@@ -44,4 +44,52 @@
 }
 
 
+@media screen and (min-width: 1024px) and (max-width: 1200px){
+    
+  
+}
+
+
+@media screen and (min-width: 769px) and (max-width: 1024px){
+        
+    .signinForm{
+        padding: 0 3rem;
+    }
+    .signInContainer{
+        width: 100%;
+    }
+  
+}
+
+
+
+@media screen and (min-width: 480px) and (max-width: 769px){
+    
+    .signinForm{
+        padding: 0 2rem;
+    }
+    .signInContainer{
+        width: 100%;
+    }
+
+
+
+}
+
+
+
+@media screen and (min-width: 0px) and (max-width: 480px){
+
+    .signinForm{
+        padding: 0 1rem;
+    }
+    .signInContainer{
+        width: 100%;
+    }
+
+
+}
+
+
+
 

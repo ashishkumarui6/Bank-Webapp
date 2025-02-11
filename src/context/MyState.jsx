@@ -34,29 +34,6 @@ const MyState = ({ children }) => {
       });
   };
 
-  // const getAddPyaee = () => {
-  //   setLoading(true);
-  //   axios
-  //     .get("https://bank-webapp-default-rtdb.firebaseio.com/addpyee.json")
-  //     .then((res) => {
-  //       const newaddpayee = [];
-
-  //       for (const id in res.data) {
-  //         newaddpayee.push({ ...res.data[id], dId: id });
-  //       }
-
-  //       const filteredData = newaddpayee.filter(
-  //         (it) => it.userId === userData.dId
-  //       );
-
-  //       setAddPayee(filteredData);
-  //       setLoading(false);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
-
   const getAddPyaee = (url, uId) => {
     return axios
       .get(url)

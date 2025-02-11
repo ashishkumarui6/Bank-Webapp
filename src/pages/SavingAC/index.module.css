@@ -35,7 +35,6 @@
 
 .SavingAC_body {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
     margin-top: 30px;
     row-gap: 20px;
@@ -243,4 +242,42 @@
     align-items: center;
     justify-content: space-between;
     margin-right: 40px;
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1200px){
+    
+  
+}
+
+
+@media screen and (min-width: 769px) and (max-width: 1024px){
+        
+  
+}
+
+
+
+@media screen and (min-width: 480px) and (max-width: 769px){
+    
+    .form{
+        padding: 0 2rem;
+    }
+    .container{
+        width: 100%;
+    }
+
+
+
+}
+
+
+
+@media screen and (min-width: 0px) and (max-width: 480px){
+    .left .logo{
+        height: 50px;
+        width: 120px;
+        display: none;
+    }
+
+
 }

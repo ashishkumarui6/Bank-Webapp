@@ -76,6 +76,7 @@
     align-items: center;
     column-gap: 30px;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .AddMoney_line{
@@ -125,4 +126,41 @@
     color: #d70026;
     font-weight: 700;
     font-size: 14px;
+}
+
+
+
+
+@media screen and (min-width: 1024px) and (max-width: 1200px){
+    
+  
+}
+
+
+@media screen and (min-width: 769px) and (max-width: 1024px){
+        
+  
+}
+
+
+
+@media screen and (min-width: 480px) and (max-width: 769px){
+
+
+
+}
+
+
+
+@media screen and (min-width: 0px) and (max-width: 480px){
+    .selectUpi_wrapper{
+        align-items: center;
+        gap: 40px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+
+    
 }

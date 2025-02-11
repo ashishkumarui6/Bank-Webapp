@@ -15,6 +15,7 @@
     align-items: center;
     column-gap: 20px;
     display: flex;
+
 }
 
 
@@ -26,6 +27,7 @@
 .logo img{
     height: 100%;
     width: 100%;
+
 }
 
 
@@ -83,3 +85,46 @@
     width: 100%;
 }
 
+@media screen and (min-width: 1024px) and (max-width: 1200px){
+    
+  
+}
+
+
+@media screen and (min-width: 769px) and (max-width: 1024px){
+        
+    .form{
+        padding: 0 3rem;
+    }
+    .container{
+        width: 100%;
+    }
+  
+}
+
+
+
+@media screen and (min-width: 480px) and (max-width: 769px){
+    
+    .form{
+        padding: 0 2rem;
+    }
+    .container{
+        width: 100%;
+    }
+
+
+
+}
+
+
+
+@media screen and (min-width: 0px) and (max-width: 480px){
+    .left .logo{
+        height: 50px;
+        width: 120px;
+        display: none;
+    }
+
+
+}
