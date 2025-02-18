@@ -1,4 +1,4 @@
-import React, { lazy, useReducer, useState } from "react";
+import React, { lazy, useContext, useReducer, useState } from "react";
 import Page_1 from "../../../components/SignUpCards/Page_1";
 import Page_2 from "../../../components/SignUpCards/Page_2";
 import Page_3 from "../../../components/SignUpCards/Page_3";
@@ -16,6 +16,7 @@ import Message from "../../../components/Message";
 import check from "../../../assets/check.png";
 
 import { toast } from "react-toastify";
+import MyContext from "../../../context/MyContext";
 
 const reducerFunc = (state, action) => {
   switch (action.type) {
@@ -33,6 +34,7 @@ const reducerFunc = (state, action) => {
 const SignUp = () => {
   const Dispatch = useDispatch();
   const isModalName = useSelector((state) => state.ui.isModalName);
+  const { copydata } = useContext(MyContext);
   const navigate = useNavigate();
   const [step1, setStep1] = useState(true);
   const [step2, setStep2] = useState(false);
@@ -82,12 +84,15 @@ const SignUp = () => {
   });
 
   const OnGetSubmit = (s) => {
-    // setPage(!page);
+    const isPhoneExist = copydata.find((it) => it.phone === state.phone);
+    const isEmailExist = copydata.find((it) => it.email === state.email);
     if (s === "1") {
       if (state.name === "" || state.name.trim().length < 3) {
         toast.error("please enter a valid name and length greater than 3");
       } else if (state.phone.length !== 10) {
         toast.error("Please enter a valid number (10 digits)");
+      } else if (isPhoneExist) {
+        toast.error("Phone Already Exist");
       } else {
         setStep1(false);
         setStep2(true);
@@ -99,6 +104,8 @@ const SignUp = () => {
         toast.error("Please Enter Valid Email");
       } else if (state.work === "" || state.work.trim().length < 4) {
         toast.error("Please Enter Valid work");
+      } else if (isEmailExist) {
+        toast.error("Email Already Exist");
       } else {
         setStep2(false);
         setStep3(true);
@@ -177,7 +184,7 @@ const SignUp = () => {
 
   return (
     <>
-      {isModalName && (
+      {/* {isModalName && (
         <div
           style={{
             background: "rgba(0,0,0,.5)",
@@ -187,7 +194,7 @@ const SignUp = () => {
             position: "fixed",
           }}
         ></div>
-      )}
+      )} */}
       {isModalName === "AcountcreateSuccess" && (
         <PinModal>
           <Message

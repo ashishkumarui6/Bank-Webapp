@@ -1,6 +1,7 @@
 .addnewpayee{
     padding: 20px;
     height: 100vh;
+    background: #fff;
 }
 
 .title{
@@ -9,4 +10,38 @@
 
 .InputField{
     margin-bottom: 20px;
+}
+
+
+
+
+@media screen and (min-width: 1024px) and (max-width: 1200px){
+    
+  
+}
+
+
+@media screen and (min-width: 769px) and (max-width: 1024px){
+        
+  
+}
+
+
+
+@media screen and (min-width: 480px) and (max-width: 769px){
+
+
+
+}
+
+
+
+@media screen and (min-width: 0px) and (max-width: 480px){
+    .addnewpayee{
+        padding: 20px;
+        height: auto;
+        background: #fff;
+    }
+
+    
 }

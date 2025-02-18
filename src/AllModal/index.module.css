@@ -20,7 +20,6 @@
     width: 50%;
     z-index: 9999999999;
     height: auto;
-    background: #fff;
     animation:Rightleft 0.5s ease forwards;
     z-index: 999999999999;
 }
@@ -34,3 +33,44 @@
         transform: translateX(0); 
     }
 }
+
+
+
+@media screen and (min-width: 1024px) and (max-width: 1200px){
+    
+  
+}
+
+
+@media screen and (min-width: 769px) and (max-width: 1024px){
+        
+  
+}
+
+
+
+@media screen and (min-width: 480px) and (max-width: 769px){
+
+
+
+}
+
+
+
+@media screen and (min-width: 0px) and (max-width: 480px){
+
+    
+    .AllModal_dropback .AllModal_dropback_right_box{
+        position: fixed;
+        height: 649px;
+        right: 10px;
+        top: 10px;
+        width: 90%;
+        z-index: 9999999999;
+        height: auto;
+        animation:Rightleft 0.5s ease forwards;
+        z-index: 999999999999;
+    }
+
+}
+

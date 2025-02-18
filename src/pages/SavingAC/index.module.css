@@ -251,20 +251,72 @@
 
 
 @media screen and (min-width: 769px) and (max-width: 1024px){
+    
+    .form{
+        padding: 0 2rem;
+    }
+
+
+    
+.SavingAC_body {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+
+    .Saving_saving {
+        width: 48%;
+    }
+
+    
+    .Card_card {
+
+        width: 48%;
+    }
+    
+    .Addcard_addcard {
+        width: 48%;
+    }
         
   
 }
 
 
 
-@media screen and (min-width: 480px) and (max-width: 769px){
+@media screen and (max-width: 769px){
     
     .form{
         padding: 0 2rem;
     }
-    .container{
+
+
+    
+.SavingAC_body {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    /* background: red; */
+}
+
+
+    .Saving_saving {
         width: 100%;
     }
+
+    
+    .Card_card {
+        width: 100%;
+    }
+    
+    .Addcard_addcard {
+        width: 100%;
+    }
+    
 
 
 
@@ -273,10 +325,32 @@
 
 
 @media screen and (min-width: 0px) and (max-width: 480px){
-    .left .logo{
-        height: 50px;
-        width: 120px;
-        display: none;
+    .form{
+        padding: 0 2rem;
+    }
+
+
+    
+.SavingAC_body {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+
+    .Saving_saving {
+        width: 100%;
+    }
+
+    
+    .Card_card {
+        width: 100%;
+    }
+    
+    .Addcard_addcard {
+        width: 100%;
     }
 
 
