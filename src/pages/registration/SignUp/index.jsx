@@ -153,6 +153,15 @@ const SignUp = () => {
     }
   };
 
+  const onGetProfile = (e) => {
+    let file = e.target.files[0];
+    const fileUrl = URL.createObjectURL(file);
+
+    if (file) {
+      setProfile(fileUrl);
+    }
+  };
+
   const onGetData = (e) => {
     const key = e.target.id;
     const val = e.target.value;
@@ -164,10 +173,6 @@ const SignUp = () => {
 
   const onGetGender = (g) => {
     dispatch({ type: "GENDER", payload: { gender: g } });
-  };
-
-  const onGetProfile = (e) => {
-    setProfile(e.target.value);
   };
 
   const step =

@@ -54,8 +54,8 @@ const UserDass = () => {
             <img src="" alt="title" />
           </div>
           <div>
-            <p className={styles.profile_email}>{user?.name}</p>
-            <p className={styles.profile_name}>{user?.email}</p>
+            <p className={styles.profile_email}>{user?.email}</p>
+            <p className={styles.profile_name}>{user?.name}</p>
           </div>
         </div>
       </div>

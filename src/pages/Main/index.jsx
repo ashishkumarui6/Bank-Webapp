@@ -119,7 +119,7 @@ const Main = ({ element }) => {
     Dispatch(uiActions.onModalOpen({ name: "" }));
   };
 
-  const [checkpass, setCheckpass] = useState("");
+  const [checkpass, setCheckpass] = useState(" ");
 
   const OnGetDataPass = (e) => {
     setCheckpass(e.target.value);
@@ -128,17 +128,28 @@ const Main = ({ element }) => {
   const OnGetpassAction = () => {
     if (matchPass.pass === checkpass) {
       Dispatch(uiActions.onModalOpen({ name: "vivecard" }));
+      setCheckpass(" ");
     } else {
       Dispatch(uiActions.onModalOpen({ name: "wrongpassword" }));
     }
   };
 
   const onGetOpenCardDetails = () => {
-    Dispatch(uiActions.onModalOpen({ name: "vivecard" }));
+    if (matchPass.pass === checkpass) {
+      Dispatch(uiActions.onModalOpen({ name: "vivecard" }));
+      setCheckpass(" ");
+    } else {
+      Dispatch(uiActions.onModalOpen({ name: "wrongpassword" }));
+    }
   };
 
   const onGetCheack = () => {
-    Dispatch(uiActions.onModalOpen({ name: "onSuccess" }));
+    if (matchPass.pass === checkpass) {
+      Dispatch(uiActions.onModalOpen({ name: "onSuccess" }));
+      setCheckpass(" ");
+    } else {
+      Dispatch(uiActions.onModalOpen({ name: "wrongpassword" }));
+    }
   };
 
   return (
@@ -161,7 +172,11 @@ const Main = ({ element }) => {
       {isModalName === "profile" && <UserDass />}
       {isModalName === "pinBtn" && (
         <PinModal>
-          <PasswordCardPin onClick={OnGetpassAction} onchange={OnGetDataPass} />
+          <PasswordCardPin
+            onClick={OnGetpassAction}
+            onchange={OnGetDataPass}
+            value={checkpass}
+          />
         </PinModal>
       )}
 
@@ -233,7 +248,11 @@ const Main = ({ element }) => {
 
       {isModalName === "onOpenSet" && (
         <PinModal>
-          <PasswordCardPin onClick={onGetCheack} />
+          <PasswordCardPin
+            onchange={OnGetDataPass}
+            value={checkpass}
+            onClick={onGetCheack}
+          />
         </PinModal>
       )}
       {isModalName === "onSuccess" && (
@@ -287,7 +306,11 @@ const Main = ({ element }) => {
 
       {isModalName === "viewCardDetails" && (
         <PinModal>
-          <PasswordCardPin onClick={onGetOpenCardDetails} />
+          <PasswordCardPin
+            onchange={OnGetDataPass}
+            onClick={onGetOpenCardDetails}
+            value={checkpass}
+          />
         </PinModal>
       )}
       {isModalName === "setAtmPin" && (

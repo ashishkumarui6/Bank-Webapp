@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./index.module.css";
 import Button from "../../widgets/Button";
+import qr from "../../assets/qrcode.svg";
 
 const QrCode = () => {
   const [user, setUser] = useState([]);
@@ -26,10 +27,7 @@ const QrCode = () => {
           </div>
         </div>
         <div className={styles.qrCode_right}>
-          <img
-            src="https://ambankservices.netlify.app/static/media/qrcode.37390060ee41a117445497c580ce6e3a.svg"
-            alt="qrcode"
-          />
+          <img src={qr} alt="qrcode" />
         </div>
       </div>
       <p className={styles.qrCode_mid_para}>

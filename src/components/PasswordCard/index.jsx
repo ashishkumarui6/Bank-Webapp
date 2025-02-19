@@ -3,7 +3,7 @@ import styles from "./index.module.css";
 import profile from "../../assets/men.jpg";
 import { FaArrowRight } from "react-icons/fa";
 
-const PasswordCardPin = ({ onchange, onClick }) => {
+const PasswordCardPin = ({ onchange, onClick, value }) => {
   const [user, setUser] = useState([]);
 
   useEffect(() => {
@@ -28,7 +28,12 @@ const PasswordCardPin = ({ onchange, onClick }) => {
         <p>Please Enter Your Password</p>
       </div>
       <div className={styles.password_inputArea}>
-        <input type="password" onChange={onchange} id="interpass" />
+        <input
+          type="password"
+          onChange={onchange}
+          value={value}
+          id="interpass"
+        />
         <div onClick={onClick}>
           <FaArrowRight color="#fff" />
         </div>

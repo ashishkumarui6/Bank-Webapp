@@ -4,6 +4,8 @@ import Desciptions from "../../../shared/Descriptins";
 import styles from "./index.module.css";
 
 const Page_5 = ({ onChange, profile }) => {
+  console.log(profile);
+
   return (
     <>
       <div className={styles.namePhone}>
