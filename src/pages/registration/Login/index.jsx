@@ -1,10 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Title from "../../../shared/Title/intex";
 import InputField from "../../../widgets/InputField";
 import Button from "../../../widgets/Button";
 import styles from "./index.module.css";
-import MyContext from "../../../context/MyContext";
 import { useDispatch, useSelector } from "react-redux";
 import { uiActions } from "../../../store/ui";
 import PinModal from "../../../PinModal";
@@ -12,12 +11,35 @@ import Message from "../../../components/Message";
 import crox from "../../../assets/crox.png";
 import { MdOutlineAttachEmail } from "react-icons/md";
 import { TbPasswordFingerprint } from "react-icons/tb";
+import axios from "axios";
 
 const Login = () => {
+  const [copydata, setCopyData] = useState([]);
   const Dispatch = useDispatch();
   const isModalName = useSelector((state) => state.ui.isModalName);
 
-  const { copydata } = useContext(MyContext);
+  const getCopyData = () => {
+    axios
+      .get("https://banks-app-5c33f-default-rtdb.firebaseio.com/users.json")
+      .then((res) => {
+        const newAddData = [];
+
+        for (const id in res.data) {
+          newAddData.push({ ...res.data[id], dId: id });
+        }
+        setCopyData(newAddData);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  useEffect(() => {
+    getCopyData();
+  }, []);
+
+  console.log(copydata, "424242424242424");
+
   const navigate = useNavigate();
   const [data, setData] = useState({
     email: "",

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./index.module.css";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { uiActions } from "../../store/ui";
 import { IoMdEyeOff } from "react-icons/io";
 import { IoEye } from "react-icons/io5";
@@ -11,7 +11,6 @@ const SavingAC = () => {
   const dispatch = useDispatch();
   const [show, setShow] = useState(true);
   const [user, setUser] = useState([]);
-  const isModalName = useSelector((state) => state.ui.isModalName);
 
   const OnGetShow = () => {
     setShow(!show);

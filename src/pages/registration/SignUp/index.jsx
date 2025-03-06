@@ -1,4 +1,4 @@
-import React, { lazy, useContext, useReducer, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import Page_1 from "../../../components/SignUpCards/Page_1";
 import Page_2 from "../../../components/SignUpCards/Page_2";
 import Page_3 from "../../../components/SignUpCards/Page_3";
@@ -16,7 +16,6 @@ import Message from "../../../components/Message";
 import check from "../../../assets/check.png";
 
 import { toast } from "react-toastify";
-import MyContext from "../../../context/MyContext";
 
 const reducerFunc = (state, action) => {
   switch (action.type) {
@@ -34,7 +33,7 @@ const reducerFunc = (state, action) => {
 const SignUp = () => {
   const Dispatch = useDispatch();
   const isModalName = useSelector((state) => state.ui.isModalName);
-  const { copydata } = useContext(MyContext);
+  const [copydata, setCopyData] = useState([]);
   const navigate = useNavigate();
   const [step1, setStep1] = useState(true);
   const [step2, setStep2] = useState(false);
@@ -42,8 +41,6 @@ const SignUp = () => {
   const [step4, setStep4] = useState(false);
   const [step5, setStep5] = useState(false);
   const [step6, setStep6] = useState(false);
-
-  const [page, setPage] = useState(false);
   const [profile, setProfile] = useState("");
 
   const onSelectPayMethod = (name) => {
@@ -138,7 +135,7 @@ const SignUp = () => {
         toast.error("please add your Funds");
       } else {
         const config = {
-          url: "https://bank-webapp-default-rtdb.firebaseio.com/users.json",
+          url: "https://banks-app-5c33f-default-rtdb.firebaseio.com/users.json",
           method: "POST",
           data: state,
         };
@@ -186,6 +183,28 @@ const SignUp = () => {
   const OngetClose = () => {
     navigate("/login");
   };
+
+  const getCopyData = () => {
+    axios
+      .get("https://banks-app-5c33f-default-rtdb.firebaseio.com/users.json")
+      .then((res) => {
+        const newAddData = [];
+
+        for (const id in res.data) {
+          newAddData.push({ ...res.data[id], dId: id });
+        }
+        setCopyData(newAddData);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  useEffect(() => {
+    getCopyData();
+  }, []);
+
+  console.log(copydata, "2111111111111111111111");
 
   return (
     <>

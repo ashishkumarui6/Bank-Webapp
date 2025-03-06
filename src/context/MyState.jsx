@@ -4,7 +4,6 @@ import axios from "axios";
 
 const MyState = ({ children }) => {
   const [loading, setLoading] = useState(false);
-  const [copydata, setCopyData] = useState([]);
   const [addpayee, setAddPayee] = useState([]);
   const [userData, setUserData] = useState([]);
 
@@ -15,24 +14,6 @@ const MyState = ({ children }) => {
       setUserData(uData);
     }
   }, []);
-
-  const getCopyData = () => {
-    setLoading(true);
-    axios
-      .get("https://bank-webapp-default-rtdb.firebaseio.com/users.json")
-      .then((res) => {
-        const newAddData = [];
-
-        for (const id in res.data) {
-          newAddData.push({ ...res.data[id], dId: id });
-        }
-        setCopyData(newAddData);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
 
   const getAddPyaee = (url, uId) => {
     return axios
@@ -72,16 +53,11 @@ const MyState = ({ children }) => {
       });
   };
 
-  useEffect(() => {
-    getCopyData();
-  }, []);
-
   return (
     <MyContext.Provider
       value={{
         loading,
         setLoading,
-        copydata,
         addpayee,
         getAddPyaee,
         getAddCard,

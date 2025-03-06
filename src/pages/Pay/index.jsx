@@ -23,7 +23,7 @@ const Pay = () => {
 
   const getPayeeData = async () => {
     const data = await getAddPyaee(
-      "https://bank-webapp-default-rtdb.firebaseio.com/addpyee.json",
+      "https://banks-app-5c33f-default-rtdb.firebaseio.com/addpyee.json",
       user.dId
     );
 

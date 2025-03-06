@@ -90,7 +90,7 @@ const Main = ({ element }) => {
       toast.error("full fill field");
     } else {
       const config = {
-        url: "https://bank-webapp-default-rtdb.firebaseio.com/cards.json",
+        url: "https://banks-app-5c33f-default-rtdb.firebaseio.com/cards.json",
         method: "POST",
         data: { ...state, userId: user.dId },
       };

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import styles from "./index.module.css";
 import AcTitle from "../../shared/AcTitile";
 import qr from "../../assets/qrscan.svg";

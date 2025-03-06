@@ -1,14 +1,14 @@
 .mainCont {
   box-sizing: border-box;
 height: 100vh;
-  background-color: rgb(27, 24, 24);
+background-color: #fff;
 }
 .ring {
   position: absolute;
   top: 50%;
   left: 50%;
-  color: #fff000;
-  text-shadow: 0 0 10px #fff000;
+  color: blue;
+  text-shadow: 0 0 10px blue;
   text-transform: uppercase;
   letter-spacing: 1px;
   box-shadow: 0 0 20px gray;
@@ -24,8 +24,8 @@ height: 100vh;
 .ring::before {
   content: "";
   position: absolute;
-  border-top: 3px solid #fff000;
-  border-left: 3px solid #fff000;
+  border-top: 3px solid #000;
+  border-left: 3px solid #000;
   top: -2px;
   height: 100%;
   border-radius: 50%;
@@ -53,14 +53,14 @@ height: 100vh;
   .mainCont {
     box-sizing: border-box;
   height: 100vh;
-    background-color: rgb(27, 24, 24);
+  background-color: #fff;
   }
   .ring {
     position: absolute;
     top: 50%;
     left: 50%;
-    color: #fff000;
-    text-shadow: 0 0 10px #fff000;
+    color: blue;
+    text-shadow: 0 0 10px blue;
     text-transform: uppercase;
     letter-spacing: 1px;
     box-shadow: 0 0 20px gray;
@@ -76,8 +76,8 @@ height: 100vh;
   .ring::before {
     content: "";
     position: absolute;
-    border-top: 3px solid #fff000;
-    border-left: 3px solid #fff000;
+    border-top: 3px solid #000;
+    border-left: 3px solid #000;
     top: -2px;
     height: 100%;
     border-radius: 50%;
@@ -104,14 +104,14 @@ height: 100vh;
   .mainCont {
     box-sizing: border-box;
   height: 100vh;
-    background-color: rgb(27, 24, 24);
+  background-color: #fff;
   }
   .ring {
     position: absolute;
     top: 50%;
     left: 42%;
-    color: #fff000;
-    text-shadow: 0 0 10px #fff000;
+    color: blue;
+    text-shadow: 0 0 10px blue;
     text-transform: uppercase;
     letter-spacing: 1px;
     box-shadow: 0 0 20px gray;
@@ -127,8 +127,8 @@ height: 100vh;
   .ring::before {
     content: "";
     position: absolute;
-    border-top: 3px solid #fff000;
-    border-left: 3px solid #fff000;
+    border-top: 3px solid #000;
+    border-left: 3px solid #000;
     top: -2px;
     height: 100%;
     border-radius: 50%;
@@ -157,14 +157,14 @@ height: 100vh;
   .mainCont {
     box-sizing: border-box;
   height: 100vh;
-    background-color: rgb(27, 24, 24);
+  background-color: #fff;
   }
   .ring {
     position: absolute;
     top: 50%;
     left: 40%;
-    color: #fff000;
-    text-shadow: 0 0 10px #fff000;
+    color: blue;
+    text-shadow: 0 0 10px blue;
     text-transform: uppercase;
     letter-spacing: 1px;
     box-shadow: 0 0 20px gray;
@@ -180,8 +180,8 @@ height: 100vh;
   .ring::before {
     content: "";
     position: absolute;
-    border-top: 3px solid #fff000;
-    border-left: 3px solid #fff000;
+    border-top: 3px solid #000;
+    border-left: 3px solid #000;
     top: -2px;
     height: 100%;
     border-radius: 50%;
@@ -210,14 +210,14 @@ height: 100vh;
   .mainCont {
     box-sizing: border-box;
   height: 100vh;
-    background-color: rgb(27, 24, 24);
+    background-color: #fff;
   }
   .ring {
     position: absolute;
     top: 50%;
     left: 38%;
-    color: #fff000;
-    text-shadow: 0 0 10px #fff000;
+    color: blue;
+    text-shadow: 0 0 10px blue;
     text-transform: uppercase;
     letter-spacing: 1px;
     box-shadow: 0 0 20px gray;
@@ -233,8 +233,8 @@ height: 100vh;
   .ring::before {
     content: "";
     position: absolute;
-    border-top: 3px solid #fff000;
-    border-left: 3px solid #fff000;
+    border-top: 3px solid #000;
+    border-left: 3px solid #000;
     top: -2px;
     height: 100%;
     border-radius: 50%;

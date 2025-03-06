@@ -23,7 +23,7 @@ const AllAddcardCompents = () => {
 
   const getCardData = async () => {
     const data = await getAddCard(
-      "https://bank-webapp-default-rtdb.firebaseio.com/cards.json",
+      "https://banks-app-5c33f-default-rtdb.firebaseio.com/cards.json",
       user.dId
     );
 

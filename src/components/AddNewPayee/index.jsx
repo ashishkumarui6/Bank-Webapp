@@ -29,12 +29,10 @@ const AddNewPayee = () => {
 
   const OnGetSaveDATA = () => {
     const config = {
-      url: "https://bank-webapp-default-rtdb.firebaseio.com/addpyee.json",
+      url: "https://banks-app-5c33f-default-rtdb.firebaseio.com/addpyee.json",
       method: "POST",
       data: { ...state, userId: user.dId },
     };
-
-    // console.log(state);
 
     axios(config)
       .then((res) => {
