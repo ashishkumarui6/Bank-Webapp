@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-const NoPage = lazy(() => import("./pages/NoPage"));
+const ERROR = lazy(() => import("./pages/ERROR"));
 const SignUp = lazy(() => import("./pages/registration/SignUp"));
 const Login = lazy(() => import("./pages/registration/Login"));
 const Main = lazy(() => import("./pages/Main"));
@@ -40,7 +40,7 @@ const App = () => {
               element={<Main element={<CurrencyConverter />} />}
             />
             <Route path="/history" element={<Main element={<History />} />} />
-            <Route path="/*" element={<NoPage />} />
+            <Route path="/*" element={<ERROR />} />
           </Routes>
           <ToastContainer />
         </MyState>
