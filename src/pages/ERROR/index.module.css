@@ -1,0 +1,84 @@
+.button{
+    padding:10px 45px;
+    background: blueviolet;
+    font-size: 16px;
+    font-weight: 400;
+    color: #fff;
+    border: blueviolet;
+    border-radius: 50px;
+    position: absolute;
+    bottom: 180px;
+    bottom: "180px",
+}
+
+
+
+@media screen and (min-width: 1024px) and (max-width: 1200px){
+    .button{
+        padding:10px 45px;
+        background: blueviolet;
+        font-size: 16px;
+        font-weight: 400;
+        color: #fff;
+        border: blueviolet;
+        border-radius: 50px;
+        position: absolute;
+        bottom: 180px;
+    }
+    
+  
+}
+
+
+@media screen and (min-width: 769px) and (max-width: 1024px){
+    .button{
+        padding:10px 45px;
+        background: blueviolet;
+        font-size: 16px;
+        font-weight: 400;
+        color: #fff;
+        border: blueviolet;
+        border-radius: 50px;
+        position: absolute;
+        bottom: 450px;
+    }  
+  
+}
+
+
+
+@media screen and (max-width: 769px){
+    .button{
+        padding:10px 45px;
+        background: blueviolet;
+        font-size: 16px;
+        font-weight: 400;
+        color: #fff;
+        border: blueviolet;
+        border-radius: 50px;
+        position: absolute;
+        bottom: 320px;
+    }
+    
+
+
+
+}
+
+
+
+@media screen and (min-width: 0px) and (max-width: 480px){
+
+    .button{
+        padding:5px 20px;
+        background: blueviolet;
+        font-size: 7px;
+        font-weight: 400;
+        color: #fff;
+        border: blueviolet;
+        border-radius: 50px;
+        position: absolute;
+        bottom: 300px;
+    }
+
+}
