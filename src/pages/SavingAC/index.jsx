@@ -17,10 +17,16 @@ const SavingAC = () => {
   };
 
   useEffect(() => {
-    const uData = JSON.parse(localStorage.getItem("user") || []);
-
-    if (uData) {
-      setUser(uData);
+    try {
+      const storedData = localStorage.getItem("user");
+      if (storedData) {
+        setUser(JSON.parse(storedData));
+      } else {
+        setUser({});
+      }
+    } catch (error) {
+      console.error("Error parsing user data:", error);
+      setUser({});
     }
   }, []);
 

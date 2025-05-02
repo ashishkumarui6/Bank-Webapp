@@ -83,6 +83,7 @@ const SignUp = () => {
   const OnGetSubmit = (s) => {
     const isPhoneExist = copydata.find((it) => it.phone === state.phone);
     const isEmailExist = copydata.find((it) => it.email === state.email);
+    console.log(isPhoneExist, "86868686");
     if (s === "1") {
       if (state.name === "" || state.name.trim().length < 3) {
         toast.error("please enter a valid name and length greater than 3");
@@ -135,7 +136,7 @@ const SignUp = () => {
         toast.error("please add your Funds");
       } else {
         const config = {
-          url: "https://banks-app-5c33f-default-rtdb.firebaseio.com/users.json",
+          url: "https://bank-app-be55c-default-rtdb.firebaseio.com/users.json",
           method: "POST",
           data: state,
         };
@@ -186,7 +187,7 @@ const SignUp = () => {
 
   const getCopyData = () => {
     axios
-      .get("https://banks-app-5c33f-default-rtdb.firebaseio.com/users.json")
+      .get("https://bank-app-be55c-default-rtdb.firebaseio.com/users.json")
       .then((res) => {
         const newAddData = [];
 

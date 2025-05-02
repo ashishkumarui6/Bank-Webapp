@@ -20,7 +20,7 @@ const Login = () => {
 
   const getCopyData = () => {
     axios
-      .get("https://banks-app-5c33f-default-rtdb.firebaseio.com/users.json")
+      .get("https://bank-app-be55c-default-rtdb.firebaseio.com/users.json")
       .then((res) => {
         const newAddData = [];
 
